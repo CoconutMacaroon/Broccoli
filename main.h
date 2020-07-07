@@ -6,10 +6,10 @@
 #include <stdlib.h>
 
 // define structs
-struct turtle {
+typedef struct turtle {
     int x;
     int y;
-} typedef;;
+} turtle;
 
 // prototypes
 int match(const char *string, char *pattern);

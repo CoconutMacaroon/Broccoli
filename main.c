@@ -2,14 +2,15 @@
 
 int main() {
     char inputData[maxLineCount][maxLineLength];
-
+    turtle myturtle;
     /*
      * f = forward
      * l = left
      * r = right
      * L = laser
+     * 0 = <none>    the runtime should ignore characters that are zeros
      * */
-    strcpy(inputData[0], "laaser;\n");
+    strcpy(inputData[0], "laser;\n");
     strcpy(inputData[1], "forward;\n");
     strcpy(inputData[2], "\0");
 
@@ -17,9 +18,11 @@ int main() {
     {
         int i = 0;
         while (true) {
+            // if we have reached the final statement
             if (strcmp(inputData[i], "\0") == 0) {
                 break;
             }
+            // if the code doesn't match a valid statement
             if (!(match(inputData[i], "(forward)\\s*;\\s*") ||
                   match(inputData[i], "(left)\\s*;\\s*") ||
                   match(inputData[i], "(right)\\s*;\\s*") ||
@@ -42,14 +45,28 @@ int main() {
     }
 
     // compile the code
+    {
+        // create a variable to store the compiled code
+        char outputData[maxLineLength];
 
-    char outputData[maxLineLength];
+        for (int i = 0; i < maxLineCount; i++) {
+            outputData[i] = '0';
+        }
 
-    for (int i = 0; i < maxLineCount; i++) {
-        outputData[i] = '0';
+        for (int i = 0; i < maxLineCount; i++) {
+            if (strcmp(inputData[i], "forward;\n") == 0) {
+                outputData[i] = 'f';
+            } else if (strcmp(inputData[i], "left;\n") == 0) {
+                outputData[i] = 'l';
+            } else if (strcmp(inputData[i], "right;\n") == 0) {
+                outputData[i] = 'r';
+            } else if (strcmp(inputData[i], "laser;\n") == 0) {
+                outputData[i] = 'L';
+            }
+        }
+        // write the compiled code to the screen
+        printf("%s", outputData);
     }
-    // write the compiled code to the screen
-    puts(outputData);
     return 0;
 }
 
