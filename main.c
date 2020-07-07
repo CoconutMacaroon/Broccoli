@@ -2,7 +2,6 @@
 
 int main() {
     char inputData[maxLineCount][maxLineLength];
-    turtle myturtle;
     /*
      * f = forward
      * l = left
@@ -65,7 +64,15 @@ int main() {
             }
         }
         // write the compiled code to the screen
-        printf("%s", outputData);
+        printf("%s\n", outputData);
+    }
+
+    // run the code
+    {
+        turtle myTurtle;
+        myTurtle.x = 1;
+        myTurtle.y = 1;
+        plotGrid(&myTurtle);
     }
     return 0;
 }
@@ -86,3 +93,6 @@ int match(const char *string, char *pattern) {
     return (1);
 }
 
+void plotGrid(turtle *inputTurtle) {
+    printf("Turtle at X: %i Y: %i.\n", inputTurtle->x, inputTurtle->y);
+}

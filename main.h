@@ -14,6 +14,7 @@ typedef struct turtle {
 // prototypes
 int match(const char *string, char *pattern);
 
+void plotGrid(turtle *inputTurtle);
 
 // #DEFINEs
 #define maxLineLength 12
