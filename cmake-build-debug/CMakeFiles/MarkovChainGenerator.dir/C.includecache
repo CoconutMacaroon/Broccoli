@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arjun/CLionProjects/Broccoli/main.c
+main.h
+/home/arjun/CLionProjects/Broccoli/main.h
+
+/home/arjun/CLionProjects/Broccoli/main.h
+string.h
+-
+regex.h
+-
+stdio.h
+-
+stdbool.h
+-
+stdlib.h
+-
+
