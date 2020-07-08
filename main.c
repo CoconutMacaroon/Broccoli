@@ -77,8 +77,8 @@ int main() {
 
     {
         turtle myTurtle;
-        myTurtle.x = 8;
-        myTurtle.y = 1;
+        myTurtle.x = turtleStartX;
+        myTurtle.y = turtleStartY;
         myTurtle.direction = 1;
         runtime(&myTurtle, &outputData[0]);
     }
@@ -103,12 +103,9 @@ int match(const char *string, char *pattern) {
 
 void runtime(turtle *inputTurtle, char *instructions) {
     char board[8][8];
-    // initialize the array to a's
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            board[i][j] = ' ';
-        }
-    }
+
+    // initialize the array to blanks
+    for (int i = 0; i < 8; i++) { for (int j = 0; j < 8; j++) { board[i][j] = ' '; }}
 
     board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
 
@@ -118,7 +115,7 @@ void runtime(turtle *inputTurtle, char *instructions) {
         for (int j = 0; j < 8; j++) {
             if (j == 0) { printf("|"); }
 
-            printf("%c|", board[i][j]);
+            printf("%c|", board[j][i]);
         }
         printf("\n-----------------\n");
     }
@@ -131,6 +128,27 @@ void runtime(turtle *inputTurtle, char *instructions) {
         switch (*instructions) {
             case 'f':
                 printf("You moved forward\n");
+                if (inputTurtle->x == 8) {
+                    // set color to red
+                    printf("\033[31m");
+
+                    // print text
+                    printf("ERROR: You have reached the end of the board. You can't move forward.");
+
+                    // and reset the color
+                    printf("\033[0m");
+
+                    // and quit
+                    exit(1);
+                }
+                for (int i = 0; i < 8; i++) { for (int j = 0; j < 8; j++) { board[i][j] = ' '; }}
+
+                if (inputTurtle->direction == 1) {
+                    inputTurtle->x = inputTurtle->x + 1;
+                }
+                // and update the board
+
+                board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
                 break;
             case 'l':
                 printf("You turned left\n");
@@ -160,6 +178,16 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 exit(1);
         }
         instructions++;
+    }
+    // print the 2D array
+    printf("-----------------\n");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (j == 0) { printf("|"); }
+
+            printf("%c|", board[j][i]);
+        }
+        printf("\n-----------------\n");
     }
 }
 /*

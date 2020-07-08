@@ -20,8 +20,11 @@ typedef struct turtle {
 
 // prototypes
 int match(const char *string, char *pattern);
+
 void runtime(turtle *inputTurtle, char *instructions);
 
 // #DEFINEs
 #define maxLineLength 12
 #define maxLineCount 12
+#define turtleStartX 4
+#define turtleStartY 4
