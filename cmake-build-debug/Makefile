@@ -177,6 +177,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/main.c.s
 .PHONY : main.c.s
 
+runtime.o: runtime.c.o
+
+.PHONY : runtime.o
+
+# target to build an object file
+runtime.c.o:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/runtime.c.o
+.PHONY : runtime.c.o
+
+runtime.i: runtime.c.i
+
+.PHONY : runtime.i
+
+# target to preprocess a source file
+runtime.c.i:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/runtime.c.i
+.PHONY : runtime.c.i
+
+runtime.s: runtime.c.s
+
+.PHONY : runtime.s
+
+# target to generate assembly for a file
+runtime.c.s:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/runtime.c.s
+.PHONY : runtime.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... runtime.o"
+	@echo "... runtime.i"
+	@echo "... runtime.s"
 .PHONY : help
 
 

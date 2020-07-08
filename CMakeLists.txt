@@ -3,4 +3,4 @@ project(Broccoli C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Broccoli main.c main.h functions.c)
+add_executable(Broccoli main.c main.h functions.c runtime.c)
