@@ -85,28 +85,11 @@ int main() {
     return 0;
 }
 
-int match(const char *string, char *pattern) {
-    // full credit goes to https://stackoverflow.com/a/1631458. code style slightly modified.
-    int status;
-    regex_t re;
-
-    if (regcomp(&re, pattern, REG_EXTENDED | REG_NOSUB) != 0) {
-        return (0);      /* Report error. */
-    }
-    status = regexec(&re, string, (size_t) 0, NULL, 0);
-    regfree(&re);
-    if (status != 0) {
-        return (0);      /* Report error. */
-    }
-    return (1);
-}
-
 void runtime(turtle *inputTurtle, char *instructions) {
-
-
     // initialize the array to blanks
-
     clearBoard(false);
+
+    // and add the turtle to the board
     updateTurtleLocation(inputTurtle);
 
     // print the 2D array
@@ -117,6 +100,8 @@ void runtime(turtle *inputTurtle, char *instructions) {
         if (*instructions == '\0') {
             break;
         }
+
+        // now for actually dealing with each instruction
         switch (*instructions) {
             case 'f':
                 printf("You moved forward\n");
@@ -133,31 +118,56 @@ void runtime(turtle *inputTurtle, char *instructions) {
                     // and quit
                     exit(1);
                 }
-                clearBoard(false);
 
+                // move in the correct direction based on inputTurtle-> direction
                 if (inputTurtle->direction == 1) {
-                    inputTurtle->x = inputTurtle->x + 1;
-                } else {
-                    printf("Other directions not implemented");
+                    (inputTurtle->x)++;
+                    updateTurtleLocation(inputTurtle);
+                    printBoard();
+                } else if (inputTurtle->direction == 4) {
+                    (inputTurtle->x)--;
+                    updateTurtleLocation(inputTurtle);
+                    printBoard();
+                } else if (inputTurtle->direction == 2) {
+                    (inputTurtle->y)++;
+                    updateTurtleLocation(inputTurtle);
+                    printBoard();
+                } else if (inputTurtle->direction == 3) {
+                    (inputTurtle->y)--;
+                    updateTurtleLocation(inputTurtle);
+                    printBoard();
                 }
-                // and update the board
+                break;
 
-                updateTurtleLocation(inputTurtle);
-                break;
             case 'l':
+                /*
+                 * 1 = up
+                 * 2 = right
+                 * 3 = down
+                 * 4 = left
+                 * */
                 printf("You turned left\n");
+                if (inputTurtle->direction == 1) {
+                    inputTurtle->direction = 1;
+                } else {
+                    (inputTurtle->direction)++;
+                }
                 break;
+
             case 'r':
                 printf("You turned right\n");
                 break;
+
             case 'L':
                 printf("Laser fired. Bam!\n");
                 break;
+
             case '0':
                 /* '0' is the dummy instruction, used to initialized the input instructions array
                  * by the compiler. It doesn't do anything. */
-                printf("");  // do nothing
+                ;
                 break;
+
             default:
                 // set color to red
                 printf("\033[31m");
@@ -181,10 +191,4 @@ void runtime(turtle *inputTurtle, char *instructions) {
  * r = right
  * L = laser
  * 0 = <none>    the runtime should ignore characters that are zeros
- * */
-/*
- * 1 = up
- * 2 = right
- * 3 = down
- * 4 = left
  * */
