@@ -10,8 +10,11 @@ int main() {
      * 0 = <none>    the runtime should ignore characters that are zeros
      * */
     strcpy(inputData[0], "laser;\n");
-    strcpy(inputData[1], "forward;\n");
-    strcpy(inputData[2], "\0");
+    strcpy(inputData[1], "left;\n");
+    strcpy(inputData[2], "right;\n");
+    strcpy(inputData[3], "forward;\n");
+    strcpy(inputData[4], "forward;\n");
+    strcpy(inputData[5], "\0");
 
     // validate the code
     {
@@ -66,7 +69,7 @@ int main() {
         }
     }
     // write the compiled code to the screen
-    printf("%s\n", outputData);
+    printf("Instructions: %s\n", outputData);
 
     //
     //  run the code
@@ -76,6 +79,7 @@ int main() {
         turtle myTurtle;
         myTurtle.x = 8;
         myTurtle.y = 1;
+        myTurtle.direction = 1;
         runtime(&myTurtle, &outputData[0]);
     }
     return 0;
@@ -98,12 +102,11 @@ int match(const char *string, char *pattern) {
 }
 
 void runtime(turtle *inputTurtle, char *instructions) {
-    printf("Turtle at X: %i Y: %i.\n", inputTurtle->x, inputTurtle->y);
     char board[8][8];
     // initialize the array to a's
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            board[i][j] = 'a';
+            board[i][j] = ' ';
         }
     }
 
@@ -114,19 +117,61 @@ void runtime(turtle *inputTurtle, char *instructions) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (j == 0) { printf("|"); }
+
             printf("%c|", board[i][j]);
         }
         printf("\n-----------------\n");
     }
 
     while (true) {
+        // if we are done getting instructions
         if (*instructions == '\0') {
             break;
         }
         switch (*instructions) {
+            case 'f':
+                printf("You moved forward\n");
+                break;
+            case 'l':
+                printf("You turned left\n");
+                break;
+            case 'r':
+                printf("You turned right\n");
+                break;
             case 'L':
-                printf("Laser fired. Bam!");
+                printf("Laser fired. Bam!\n");
+                break;
+            case '0':
+                /* '0' is the dummy instruction, used to initialized the input instructions array
+                 * by the compiler. It doesn't do anything. */
+                printf("");  // do nothing
+                break;
+            default:
+                // set color to red
+                printf("\033[31m");
+
+                // print text
+                printf("ERROR: '%c' is not a valid instruction\n", *instructions);
+
+                // and reset the color
+                printf("\033[0m");
+
+                // and quit
+                exit(1);
         }
         instructions++;
     }
 }
+/*
+ * f = forward
+ * l = left
+ * r = right
+ * L = laser
+ * 0 = <none>    the runtime should ignore characters that are zeros
+ * */
+/*
+ * 1 = up
+ * 2 = right
+ * 3 = down
+ * 4 = left
+ * */
