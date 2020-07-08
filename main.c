@@ -43,36 +43,40 @@ int main() {
         }
     }
 
-    // compile the code
-    {
-        // create a variable to store the compiled code
-        char outputData[maxLineLength];
+    //
+    //  compile the code
+    //
 
-        for (int i = 0; i < maxLineCount; i++) {
-            outputData[i] = '0';
-        }
+    // create a variable to store the compiled code
+    char outputData[maxLineLength];
 
-        for (int i = 0; i < maxLineCount; i++) {
-            if (strcmp(inputData[i], "forward;\n") == 0) {
-                outputData[i] = 'f';
-            } else if (strcmp(inputData[i], "left;\n") == 0) {
-                outputData[i] = 'l';
-            } else if (strcmp(inputData[i], "right;\n") == 0) {
-                outputData[i] = 'r';
-            } else if (strcmp(inputData[i], "laser;\n") == 0) {
-                outputData[i] = 'L';
-            }
-        }
-        // write the compiled code to the screen
-        printf("%s\n", outputData);
+    for (int i = 0; i < maxLineCount; i++) {
+        outputData[i] = '0';
     }
 
-    // run the code
+    for (int i = 0; i < maxLineCount; i++) {
+        if (strcmp(inputData[i], "forward;\n") == 0) {
+            outputData[i] = 'f';
+        } else if (strcmp(inputData[i], "left;\n") == 0) {
+            outputData[i] = 'l';
+        } else if (strcmp(inputData[i], "right;\n") == 0) {
+            outputData[i] = 'r';
+        } else if (strcmp(inputData[i], "laser;\n") == 0) {
+            outputData[i] = 'L';
+        }
+    }
+    // write the compiled code to the screen
+    printf("%s\n", outputData);
+
+    //
+    //  run the code
+    //
+
     {
         turtle myTurtle;
-        myTurtle.x = 1;
+        myTurtle.x = 8;
         myTurtle.y = 1;
-        plotGrid(&myTurtle);
+        runtime(&myTurtle, &outputData[0]);
     }
     return 0;
 }
@@ -93,6 +97,36 @@ int match(const char *string, char *pattern) {
     return (1);
 }
 
-void plotGrid(turtle *inputTurtle) {
+void runtime(turtle *inputTurtle, char *instructions) {
     printf("Turtle at X: %i Y: %i.\n", inputTurtle->x, inputTurtle->y);
+    char board[8][8];
+    // initialize the array to a's
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            board[i][j] = 'a';
+        }
+    }
+
+    board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
+
+    // print the 2D array
+    printf("-----------------\n");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (j == 0) { printf("|"); }
+            printf("%c|", board[i][j]);
+        }
+        printf("\n-----------------\n");
+    }
+
+    while (true) {
+        if (*instructions == '\0') {
+            break;
+        }
+        switch (*instructions) {
+            case 'L':
+                printf("Laser fired. Bam!");
+        }
+        instructions++;
+    }
 }

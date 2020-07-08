@@ -9,12 +9,13 @@
 typedef struct turtle {
     int x;
     int y;
+    int direction;
 } turtle;
 
 // prototypes
 int match(const char *string, char *pattern);
 
-void plotGrid(turtle *inputTurtle);
+void runtime(turtle *inputTurtle, char *instructions);
 
 // #DEFINEs
 #define maxLineLength 12
