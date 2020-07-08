@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/arjun/CLionProjects/Broccoli/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/arjun/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/arjun/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MarkovChainGenerator
+# Target rules for targets named Broccoli
 
 # Build rule for target.
-MarkovChainGenerator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MarkovChainGenerator
-.PHONY : MarkovChainGenerator
+Broccoli: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Broccoli
+.PHONY : Broccoli
 
 # fast build rule for target.
-MarkovChainGenerator/fast:
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/build
-.PHONY : MarkovChainGenerator/fast
+Broccoli/fast:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/build
+.PHONY : Broccoli/fast
+
+functions.o: functions.c.o
+
+.PHONY : functions.o
+
+# target to build an object file
+functions.c.o:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/functions.c.o
+.PHONY : functions.c.o
+
+functions.i: functions.c.i
+
+.PHONY : functions.i
+
+# target to preprocess a source file
+functions.c.i:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/functions.c.i
+.PHONY : functions.c.i
+
+functions.s: functions.c.s
+
+.PHONY : functions.s
+
+# target to generate assembly for a file
+functions.c.s:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/functions.c.s
+.PHONY : functions.c.s
 
 main.o: main.c.o
 
@@ -129,7 +156,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/main.c.o
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -138,7 +165,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/main.c.i
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -147,7 +174,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/main.c.s
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -156,9 +183,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MarkovChainGenerator"
+	@echo "... edit_cache"
+	@echo "... Broccoli"
+	@echo "... functions.o"
+	@echo "... functions.i"
+	@echo "... functions.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

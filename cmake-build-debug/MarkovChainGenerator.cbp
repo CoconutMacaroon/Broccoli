@@ -17,16 +17,6 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/arjun/CLionProjects/Broccoli/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/arjun/CLionProjects/Broccoli/cmake-build-debug"/>
 				<Option type="4"/>
@@ -37,28 +27,18 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="MarkovChainGenerator">
-				<Option output="/home/arjun/CLionProjects/Broccoli/cmake-build-debug/MarkovChainGenerator" prefix_auto="0" extension_auto="0"/>
+			<Target title="edit_cache">
 				<Option working_dir="/home/arjun/CLionProjects/Broccoli/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 MarkovChainGenerator"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="MarkovChainGenerator/fast">
-				<Option output="/home/arjun/CLionProjects/Broccoli/cmake-build-debug/MarkovChainGenerator" prefix_auto="0" extension_auto="0"/>
+			<Target title="Broccoli">
+				<Option output="/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Broccoli" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/arjun/CLionProjects/Broccoli/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -71,18 +51,41 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 MarkovChainGenerator/fast"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 Broccoli"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Broccoli/fast">
+				<Option output="/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Broccoli" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/arjun/CLionProjects/Broccoli/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 Broccoli/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/arjun/CLionProjects/Broccoli/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/arjun/CLionProjects/Broccoli/functions.c">
+			<Option target="Broccoli"/>
+		</Unit>
 		<Unit filename="/home/arjun/CLionProjects/Broccoli/main.c">
-			<Option target="MarkovChainGenerator"/>
+			<Option target="Broccoli"/>
 		</Unit>
 		<Unit filename="/home/arjun/CLionProjects/Broccoli/main.h">
-			<Option target="MarkovChainGenerator"/>
+			<Option target="Broccoli"/>
 		</Unit>
 		<Unit filename="/home/arjun/CLionProjects/Broccoli/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

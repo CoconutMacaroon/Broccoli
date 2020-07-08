@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MarkovChainGenerator.dir/functions.c.o"
   "CMakeFiles/MarkovChainGenerator.dir/main.c.o"
   "MarkovChainGenerator"
   "MarkovChainGenerator.pdb"

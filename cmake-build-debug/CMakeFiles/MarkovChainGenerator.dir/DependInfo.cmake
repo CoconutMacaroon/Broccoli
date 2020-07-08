@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/arjun/CLionProjects/Broccoli/functions.c" "/home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles/MarkovChainGenerator.dir/functions.c.o"
   "/home/arjun/CLionProjects/Broccoli/main.c" "/home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles/MarkovChainGenerator.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

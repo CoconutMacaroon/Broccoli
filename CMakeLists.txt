@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
-project(MarkovChainGenerator C)
+project(Broccoli C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(MarkovChainGenerator main.c main.h)
+add_executable(Broccoli main.c main.h functions.c)

@@ -102,23 +102,15 @@ int match(const char *string, char *pattern) {
 }
 
 void runtime(turtle *inputTurtle, char *instructions) {
-    char board[8][8];
+
 
     // initialize the array to blanks
-    for (int i = 0; i < 8; i++) { for (int j = 0; j < 8; j++) { board[i][j] = ' '; }}
 
-    board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
+    clearBoard(false);
+    updateTurtleLocation(inputTurtle);
 
     // print the 2D array
-    printf("-----------------\n");
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            if (j == 0) { printf("|"); }
-
-            printf("%c|", board[j][i]);
-        }
-        printf("\n-----------------\n");
-    }
+    printBoard();
 
     while (true) {
         // if we are done getting instructions
@@ -141,14 +133,16 @@ void runtime(turtle *inputTurtle, char *instructions) {
                     // and quit
                     exit(1);
                 }
-                for (int i = 0; i < 8; i++) { for (int j = 0; j < 8; j++) { board[i][j] = ' '; }}
+                clearBoard(false);
 
                 if (inputTurtle->direction == 1) {
                     inputTurtle->x = inputTurtle->x + 1;
+                } else {
+                    printf("Other directions not implemented");
                 }
                 // and update the board
 
-                board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
+                updateTurtleLocation(inputTurtle);
                 break;
             case 'l':
                 printf("You turned left\n");
@@ -179,16 +173,7 @@ void runtime(turtle *inputTurtle, char *instructions) {
         }
         instructions++;
     }
-    // print the 2D array
-    printf("-----------------\n");
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            if (j == 0) { printf("|"); }
 
-            printf("%c|", board[j][i]);
-        }
-        printf("\n-----------------\n");
-    }
 }
 /*
  * f = forward

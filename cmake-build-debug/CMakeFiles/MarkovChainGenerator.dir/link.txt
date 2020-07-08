@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/MarkovChainGenerator.dir/main.c.o  -o MarkovChainGenerator 
+/usr/bin/cc -g   CMakeFiles/MarkovChainGenerator.dir/main.c.o CMakeFiles/MarkovChainGenerator.dir/functions.c.o  -o MarkovChainGenerator 

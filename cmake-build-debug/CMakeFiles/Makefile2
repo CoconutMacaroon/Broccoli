@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/arjun/CLionProjects/Broccoli/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/MarkovChainGenerator.dir/all
+all: CMakeFiles/Broccoli.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/MarkovChainGenerator.dir/clean
+clean: CMakeFiles/Broccoli.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MarkovChainGenerator.dir
+# Target rules for target CMakeFiles/Broccoli.dir
 
 # All Build rule for target.
-CMakeFiles/MarkovChainGenerator.dir/all:
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/depend
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target MarkovChainGenerator"
-.PHONY : CMakeFiles/MarkovChainGenerator.dir/all
+CMakeFiles/Broccoli.dir/all:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/depend
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Broccoli"
+.PHONY : CMakeFiles/Broccoli.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MarkovChainGenerator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MarkovChainGenerator.dir/all
+CMakeFiles/Broccoli.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Broccoli.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/arjun/CLionProjects/Broccoli/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/MarkovChainGenerator.dir/rule
+.PHONY : CMakeFiles/Broccoli.dir/rule
 
 # Convenience name for target.
-MarkovChainGenerator: CMakeFiles/MarkovChainGenerator.dir/rule
+Broccoli: CMakeFiles/Broccoli.dir/rule
 
-.PHONY : MarkovChainGenerator
+.PHONY : Broccoli
 
 # clean rule for target.
-CMakeFiles/MarkovChainGenerator.dir/clean:
-	$(MAKE) -f CMakeFiles/MarkovChainGenerator.dir/build.make CMakeFiles/MarkovChainGenerator.dir/clean
-.PHONY : CMakeFiles/MarkovChainGenerator.dir/clean
+CMakeFiles/Broccoli.dir/clean:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/clean
+.PHONY : CMakeFiles/Broccoli.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
