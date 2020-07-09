@@ -1,7 +1,7 @@
 #include "main.h"
 
 void moveForward(turtle *inputTurtle) {
-    printf("You moved forward\n");
+    printf("You try to move forward\n");
     if (inputTurtle->x == 8) {
         // set color to red
         printf("\033[31m");
@@ -42,7 +42,7 @@ void moveForward(turtle *inputTurtle) {
 }
 
 void turnLeft(turtle *inputTurtle) {
-    printf("You turned left\n");
+    printf("You try to turn left\n");
     if (inputTurtle->direction == 1) {
         inputTurtle->direction = 4;
     } else {
@@ -53,7 +53,7 @@ void turnLeft(turtle *inputTurtle) {
 }
 
 void turnRight(turtle *inputTurtle) {
-    printf("You turned right\n");
+    printf("You try to turn right\n");
     (inputTurtle->direction)++;
     if (inputTurtle->direction == 5) {
         inputTurtle->direction = 1;

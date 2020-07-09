@@ -21,7 +21,7 @@ void clearBoard(bool onlyClearTurtles) {
     }
 
     // create some obstacles
-    board[1][1] = 'e';
+    board[4][2] = 'e';
 }
 
 void updateTurtleLocation(turtle *inputTurtle) {
@@ -30,6 +30,20 @@ void updateTurtleLocation(turtle *inputTurtle) {
     // clear all turtles from board, as we don't want multiple turtles
     clearBoard(true);
 
+    // make sure you aren't moving into a wall
+    if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
+        // set color to red
+        printf("\033[31m");
+
+        // print text
+        printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
+
+        // and reset the color
+        printf("\033[0m");
+
+        // and quit
+        exit(1);
+    }
     // based on the turtle's direction, place the appropriate icon on the board
     switch (inputTurtle->direction) {
         case 1:
