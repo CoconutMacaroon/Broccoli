@@ -21,18 +21,43 @@ void moveForward(turtle *inputTurtle) {
             (inputTurtle->y)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            break;
         case 2:
             (inputTurtle->x)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            break;
         case 3:
             // down
             (inputTurtle->y)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            break;
         case 4:
             (inputTurtle->x)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            break;
     }
+}
+
+void turnLeft(turtle *inputTurtle) {
+    printf("You turned left\n");
+    if (inputTurtle->direction == 1) {
+        inputTurtle->direction = 4;
+    } else {
+        (inputTurtle->direction)--;
+    }
+    updateTurtleLocation(inputTurtle);
+    printBoard();
+}
+
+void turnRight(turtle *inputTurtle) {
+    printf("You turned right\n");
+    (inputTurtle->direction)++;
+    if (inputTurtle->direction == 5) {
+        inputTurtle->direction = 1;
+    }
+    updateTurtleLocation(inputTurtle);
+    printBoard();
 }

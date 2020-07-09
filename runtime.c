@@ -18,30 +18,17 @@ void runtime(turtle *inputTurtle, char *instructions) {
         switch (*instructions) {
             // if we are moving forward
             case 'f':
-                moveForward(&inputTurtle);
+                moveForward(inputTurtle);
                 break;
 
                 // if we are moving left
             case 'l':
-                printf("You turned left\n");
-                if (inputTurtle->direction == 1) {
-                    inputTurtle->direction = 4;
-                } else {
-                    (inputTurtle->direction)--;
-                }
-                updateTurtleLocation(inputTurtle);
-                printBoard();
+                turnLeft(inputTurtle);
                 break;
 
                 // if we are moving right
             case 'r':
-                printf("You turned right\n");
-                (inputTurtle->direction)++;
-                if (inputTurtle->direction == 5) {
-                    inputTurtle->direction = 1;
-                }
-                updateTurtleLocation(inputTurtle);
-                printBoard();
+                turnRight(inputTurtle);
                 break;
 
                 // if we are firing the turtle's laser
