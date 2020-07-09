@@ -123,6 +123,33 @@ Broccoli/fast:
 	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/build
 .PHONY : Broccoli/fast
 
+compile.o: compile.c.o
+
+.PHONY : compile.o
+
+# target to build an object file
+compile.c.o:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/compile.c.o
+.PHONY : compile.c.o
+
+compile.i: compile.c.i
+
+.PHONY : compile.i
+
+# target to preprocess a source file
+compile.c.i:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/compile.c.i
+.PHONY : compile.c.i
+
+compile.s: compile.c.s
+
+.PHONY : compile.s
+
+# target to generate assembly for a file
+compile.c.s:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/compile.c.s
+.PHONY : compile.c.s
+
 functions.o: functions.c.o
 
 .PHONY : functions.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Broccoli"
+	@echo "... compile.o"
+	@echo "... compile.i"
+	@echo "... compile.s"
 	@echo "... functions.o"
 	@echo "... functions.i"
 	@echo "... functions.s"

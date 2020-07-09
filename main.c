@@ -9,6 +9,9 @@ int main() {
      * L = laser
      * 0 = <none>    the runtime should ignore characters that are zeros
      * */
+
+    // initialize sample input code
+    // TODO: Read input code from file
     strcpy(inputData[0], "laser;\n");
     strcpy(inputData[1], "left;\n");
     strcpy(inputData[2], "right;\n");
@@ -72,11 +75,12 @@ int main() {
 
     }
     // write the compiled code to the screen
+
+    // TODO: Write compiled instructions to file, rather than console
     printf("Instructions: %s\n", outputData);
 
-    //
-    //  run the code
-    //
+    // run the code
+
 
     {
         turtle myTurtle;

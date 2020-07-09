@@ -1,6 +1,7 @@
 #include "main.h"
 
 void runtime(turtle *inputTurtle, char *instructions) {
+    // TODO: read compiled code from file
     // initialize the array to blanks
     clearBoard(false);
 
