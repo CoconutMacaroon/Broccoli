@@ -1,6 +1,7 @@
 #include "main.h"
 
 void moveForward(turtle *inputTurtle) {
+
     printf("You try to move forward\n");
 
     switch (inputTurtle->direction) {

@@ -45,18 +45,20 @@ void updateTurtleLocation(turtle *inputTurtle) {
 
     // clear all turtles from board, as we don't want multiple turtles
     clearBoard(true);
-
     // if it is not a puddle
-    if (board[inputTurtle->x - 1][inputTurtle->y - 1] != 'o') {
-        // check if we can go through it
-        // and if we can't
-        if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
-            // print an error message
+    if (board[inputTurtle->x - 1][inputTurtle->y - 1] == 'o') {
+        goto here;
+    }
 
-            // set color to red
-            printf("\033[31m");
+    // check if we can go through it
+    // and if we can't
+    if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
+        // print an error message
 
-            // print text
+        // set color to red
+        printf("\033[31m");
+
+        // print text
             printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
 
             // and reset the color
@@ -65,25 +67,25 @@ void updateTurtleLocation(turtle *inputTurtle) {
             // and quit
             exit(1);
         }
-    } else {
-        // but if it is a puddle, we can go through it
 
-        // based on the turtle's direction, place the appropriate icon on the board
-        switch (inputTurtle->direction) {
-            case 1:
-                board[inputTurtle->x - 1][inputTurtle->y - 1] = '^';
-                break;
-            case 2:
-                board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
-                break;
-            case 3:
-                board[inputTurtle->x - 1][inputTurtle->y - 1] = 'v';
+        // but if it is a puddle, we can go through it
+    here:
+    // based on the turtle's direction, place the appropriate icon on the board
+    switch (inputTurtle->direction) {
+        case 1:
+            board[inputTurtle->x - 1][inputTurtle->y - 1] = '^';
+            break;
+        case 2:
+            board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
+            break;
+        case 3:
+            board[inputTurtle->x - 1][inputTurtle->y - 1] = 'v';
                 break;
             case 4:
                 board[inputTurtle->x - 1][inputTurtle->y - 1] = '<';
                 break;
         }
-    }
+
 }
 
 void printBoard() {
