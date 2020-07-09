@@ -8,7 +8,13 @@ void runtime(turtle *inputTurtle, char *instructions) {
     // and add the turtle to the board
     updateTurtleLocation(inputTurtle);
 
+    // and add the walls, ice, etc.
+    initBoard();
+
+    // and display the starting board
     printBoard();
+
+    // until we are done
     while (true) {
         // if we are done getting instructions
         if (*instructions == '\0') {
@@ -33,18 +39,8 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 break;
 
                 // if we are firing the turtle's laser
-                // TODO: add the ability for lasers to melt ice blocks
             case 'L':
-                printf("Laser fired. Bam!\n");
-                switch (inputTurtle->direction) {
-                    case 1:
-                        printf("oh no: '%c'\n", board[inputTurtle->x - 1][inputTurtle->y - 2]);
-                        if (board[inputTurtle->x - 1][inputTurtle->y - 2] == 'I') {
-                            printf("we are here\n");
-                            board[inputTurtle->x - 1][inputTurtle->y - 2] = 'o';
-                        }
-                        printBoard();
-                }
+                fireLaser(inputTurtle);
                 break;
 
             case '0':

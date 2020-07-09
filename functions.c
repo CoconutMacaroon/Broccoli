@@ -1,5 +1,16 @@
 #include "main.h"
 
+bool doesSpotHaveNoObstacle(int x, int y) {
+    if (board[x][y] != 'o') {
+        if (board[x][y] != 'W') {
+            if (board[x][y] != 'I') {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 void clearBoard(bool onlyClearTurtles) {
     // set each square on the board to a blank
 
@@ -7,7 +18,7 @@ void clearBoard(bool onlyClearTurtles) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (onlyClearTurtles == false) {
-                if (board[i][j] != 'o') {
+                if (doesSpotHaveNoObstacle(i, j)) {
                     board[i][j] = ' ';
                 }
             }
@@ -21,9 +32,11 @@ void clearBoard(bool onlyClearTurtles) {
             }
         }
     }
+}
 
+void initBoard() {
     // create some obstacles
-    board[4][2] = 'e';
+    board[4][2] = 'W';
     board[0][6] = 'I';
 }
 
@@ -33,34 +46,43 @@ void updateTurtleLocation(turtle *inputTurtle) {
     // clear all turtles from board, as we don't want multiple turtles
     clearBoard(true);
 
-    // make sure you aren't moving into a wall
-    if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
-        // set color to red
-        printf("\033[31m");
+    // if it is not a puddle
+    if (board[inputTurtle->x - 1][inputTurtle->y - 1] != 'o') {
+        // check if we can go through it
+        // and if we can't
+        if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
+            // print an error message
 
-        // print text
-        printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
+            // set color to red
+            printf("\033[31m");
 
-        // and reset the color
-        printf("\033[0m");
+            // print text
+            printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
 
-        // and quit
-        exit(1);
-    }
-    // based on the turtle's direction, place the appropriate icon on the board
-    switch (inputTurtle->direction) {
-        case 1:
-            board[inputTurtle->x - 1][inputTurtle->y - 1] = '^';
-            break;
-        case 2:
-            board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
-            break;
-        case 3:
-            board[inputTurtle->x - 1][inputTurtle->y - 1] = 'v';
-            break;
-        case 4:
-            board[inputTurtle->x - 1][inputTurtle->y - 1] = '<';
-            break;
+            // and reset the color
+            printf("\033[0m");
+
+            // and quit
+            exit(1);
+        }
+    } else {
+        // but if it is a puddle, we can go through it
+
+        // based on the turtle's direction, place the appropriate icon on the board
+        switch (inputTurtle->direction) {
+            case 1:
+                board[inputTurtle->x - 1][inputTurtle->y - 1] = '^';
+                break;
+            case 2:
+                board[inputTurtle->x - 1][inputTurtle->y - 1] = '>';
+                break;
+            case 3:
+                board[inputTurtle->x - 1][inputTurtle->y - 1] = 'v';
+                break;
+            case 4:
+                board[inputTurtle->x - 1][inputTurtle->y - 1] = '<';
+                break;
+        }
     }
 }
 

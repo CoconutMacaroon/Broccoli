@@ -30,11 +30,13 @@ void moveForward(turtle *inputTurtle) {
 
 void turnLeft(turtle *inputTurtle) {
     printf("You try to turn left\n");
-    if (inputTurtle->direction == 1) {
+
+    (inputTurtle->direction)--;
+    if (inputTurtle->direction == 0) {
         inputTurtle->direction = 4;
-    } else {
-        (inputTurtle->direction)--;
     }
+
+    clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
 }
@@ -45,6 +47,24 @@ void turnRight(turtle *inputTurtle) {
     if (inputTurtle->direction == 5) {
         inputTurtle->direction = 1;
     }
+
+    clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
+}
+
+void fireLaser(turtle *inputTurtle) {
+    // TODO: The melted ice gets cleared after one frame
+    printf("Laser fired. Bam!\n");
+    switch (inputTurtle->direction) {
+        case 1:
+            printf("oh no: '%c'\n", board[inputTurtle->x - 1][inputTurtle->y - 2]);
+            if (board[inputTurtle->x - 1][inputTurtle->y - 2] == 'I') {
+                printf("we are here\n");
+                board[inputTurtle->x - 1][inputTurtle->y - 2] = 'o';
+            }
+            clearBoard(false);
+            updateTurtleLocation(inputTurtle);
+            printBoard();
+    }
 }

@@ -22,6 +22,8 @@ void clearBoard(bool onlyClearTurtles);
 
 void printBoard();
 
+void initBoard();
+
 void runtime(turtle *inputTurtle, char *instructions);
 
 void updateTurtleLocation(turtle *inputTurtle);
@@ -31,6 +33,8 @@ void moveForward(turtle *inputTurtle);
 void turnLeft(turtle *inputTurtle);
 
 void turnRight(turtle *inputTurtle);
+
+void fireLaser(turtle *inputTurtle);
 
 // #DEFINEs
 #define maxLineLength 12
