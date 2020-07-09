@@ -16,51 +16,13 @@ void runtime(turtle *inputTurtle, char *instructions) {
 
         // now for actually dealing with each instruction
         switch (*instructions) {
+            // if we are moving forward
             case 'f':
-                printf("You moved forward\n");
-                if (inputTurtle->x == 8) {
-                    // set color to red
-                    printf("\033[31m");
-
-                    // print text
-                    printf("ERROR: You have reached the end of the board. You can't move forward.");
-
-                    // and reset the color
-                    printf("\033[0m");
-
-                    // and quit
-                    exit(1);
-                }
-
-                // move in the correct direction based on inputTurtle-> direction
-                if (inputTurtle->direction == 1) {
-                    // up
-                    (inputTurtle->y)--;
-                    updateTurtleLocation(inputTurtle);
-                    printBoard();
-                } else if (inputTurtle->direction == 2) {
-                    (inputTurtle->x)++;
-                    updateTurtleLocation(inputTurtle);
-                    printBoard();
-                } else if (inputTurtle->direction == 3) {
-                    // down
-                    (inputTurtle->y)++;
-                    updateTurtleLocation(inputTurtle);
-                    printBoard();
-                } else if (inputTurtle->direction == 4) {
-                    (inputTurtle->x)--;
-                    updateTurtleLocation(inputTurtle);
-                    printBoard();
-                }
+                moveForward(&inputTurtle);
                 break;
 
+                // if we are moving left
             case 'l':
-                /*
-                 * 1 = up
-                 * 2 = right
-                 * 3 = down
-                 * 4 = left
-                 * */
                 printf("You turned left\n");
                 if (inputTurtle->direction == 1) {
                     inputTurtle->direction = 4;
@@ -71,6 +33,7 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 printBoard();
                 break;
 
+                // if we are moving right
             case 'r':
                 printf("You turned right\n");
                 (inputTurtle->direction)++;
@@ -81,12 +44,15 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 printBoard();
                 break;
 
+                // if we are firing the turtle's laser
+                // TODO: add the ability for lasers to melt ice blocks
             case 'L':
                 printf("Laser fired. Bam!\n");
                 break;
 
             case '0':
                 // '0' is a dummy instruction. It is used to zero out the outputData array in the compiler.
+                // but it has to have a `case`, as it is a valid instruction
                 ;
                 break;
 
@@ -103,6 +69,8 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 // and quit
                 exit(1);
         }
+        // and move to the next instruction
+        // this increments the pointer, moving it to the next char/instruction
         instructions++;
     }
 }

@@ -204,6 +204,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/main.c.s
 .PHONY : main.c.s
 
+moveFunctions.o: moveFunctions.c.o
+
+.PHONY : moveFunctions.o
+
+# target to build an object file
+moveFunctions.c.o:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/moveFunctions.c.o
+.PHONY : moveFunctions.c.o
+
+moveFunctions.i: moveFunctions.c.i
+
+.PHONY : moveFunctions.i
+
+# target to preprocess a source file
+moveFunctions.c.i:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/moveFunctions.c.i
+.PHONY : moveFunctions.c.i
+
+moveFunctions.s: moveFunctions.c.s
+
+.PHONY : moveFunctions.s
+
+# target to generate assembly for a file
+moveFunctions.c.s:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/moveFunctions.c.s
+.PHONY : moveFunctions.c.s
+
 runtime.o: runtime.c.o
 
 .PHONY : runtime.o
@@ -249,6 +276,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... moveFunctions.o"
+	@echo "... moveFunctions.i"
+	@echo "... moveFunctions.s"
 	@echo "... runtime.o"
 	@echo "... runtime.i"
 	@echo "... runtime.s"

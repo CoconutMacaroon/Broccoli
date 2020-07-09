@@ -25,6 +25,8 @@ void runtime(turtle *inputTurtle, char *instructions);
 
 void updateTurtleLocation(turtle *inputTurtle);
 
+void moveForward();
+
 // #DEFINEs
 #define maxLineLength 12
 #define maxLineCount 12

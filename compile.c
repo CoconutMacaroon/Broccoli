@@ -3,7 +3,6 @@
 int compile() {
     char inputData[maxLineCount][maxLineLength];
 
-
     // initialize sample input code
     // TODO: Read input code from file
     strcpy(inputData[0], "laser;\n");

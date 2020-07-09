@@ -1,9 +1,7 @@
 #include "main.h"
 
 int main() {
-    int returnValue = compile();
-
-    return returnValue;
+    return compile();
 }
 
 

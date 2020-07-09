@@ -2,23 +2,35 @@
 
 void clearBoard(bool onlyClearTurtles) {
     // set each square on the board to a blank
+
+    // for every square on the board
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (onlyClearTurtles == false) {
                 board[i][j] = ' ';
             }
+            // if we want to only clear turtles
             if (onlyClearTurtles == true) {
+                // if it is a turtle
                 if ((board[i][j] == '>') || (board[i][j] == '<') || (board[i][j] == 'v') || (board[i][j] == '^')) {
+                    // wipe it out
                     board[i][j] = ' ';
                 }
             }
         }
     }
+
+    // create some obstacles
+    board[1][1] = 'e';
 }
 
 void updateTurtleLocation(turtle *inputTurtle) {
     // updates the turtle on the board
+
+    // clear all turtles from board, as we don't want multiple turtles
     clearBoard(true);
+
+    // based on the turtle's direction, place the appropriate icon on the board
     switch (inputTurtle->direction) {
         case 1:
             board[inputTurtle->x - 1][inputTurtle->y - 1] = '^';
