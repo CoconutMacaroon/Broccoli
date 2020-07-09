@@ -2,19 +2,6 @@
 
 void moveForward(turtle *inputTurtle) {
     printf("You try to move forward\n");
-    if (inputTurtle->x == 8) {
-        // set color to red
-        printf("\033[31m");
-
-        // print text
-        printf("ERROR: You have reached the end of the board. You can't move forward.");
-
-        // and reset the color
-        printf("\033[0m");
-
-        // and quit
-        exit(1);
-    }
 
     switch (inputTurtle->direction) {
         case 1:

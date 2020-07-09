@@ -7,7 +7,9 @@ void clearBoard(bool onlyClearTurtles) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (onlyClearTurtles == false) {
-                board[i][j] = ' ';
+                if (board[i][j] != 'o') {
+                    board[i][j] = ' ';
+                }
             }
             // if we want to only clear turtles
             if (onlyClearTurtles == true) {
@@ -22,6 +24,7 @@ void clearBoard(bool onlyClearTurtles) {
 
     // create some obstacles
     board[4][2] = 'e';
+    board[0][6] = 'I';
 }
 
 void updateTurtleLocation(turtle *inputTurtle) {

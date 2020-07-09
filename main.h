@@ -7,6 +7,7 @@
 
 // define structs
 typedef struct turtle {
+    // these start counting at ONE
     int x;
     int y;
     int direction;
@@ -34,8 +35,8 @@ void turnRight(turtle *inputTurtle);
 // #DEFINEs
 #define maxLineLength 12
 #define maxLineCount 12
-#define turtleStartX 4
-#define turtleStartY 4
+#define turtleStartX 1
+#define turtleStartY 8
 
 // globals
 char board[8][8];
