@@ -13,6 +13,8 @@ typedef struct turtle {
 } turtle;
 
 // prototypes
+int compile();
+
 int match(const char *string, char *pattern);
 
 void clearBoard(bool onlyClearTurtles);
