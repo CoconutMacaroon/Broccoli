@@ -5,13 +5,33 @@ int compile() {
 
     // initialize sample input code
     // TODO: Read input code from file
-    strcpy(inputData[0], "laser;\n");
-    strcpy(inputData[1], "left;\n");
-    strcpy(inputData[2], "right;\n");
-    strcpy(inputData[3], "forward;\n");
+    strcpy(inputData[0], "function {\n");
+    strcpy(inputData[1], "laser;\n");
+    strcpy(inputData[2], "}\n");
+    strcpy(inputData[3], "laser;\n");
     strcpy(inputData[4], "right;\n");
-    strcpy(inputData[5], "forward;\n");
+    strcpy(inputData[5], "laser;\n");
     strcpy(inputData[6], "\0");
+
+    // find the function definition
+    int functionCodeStart = NULL;  // this will store the first line that has the code that is in the function
+    {
+        int i = 0;
+        while (strcmp(inputData[i], "\0")) {
+            // if we've found a function definition
+            if (match(inputData[i], "(function)\\s*\\{\\s*") == 1) {
+                functionCodeStart = i;
+                printf("We found a function at line %i.\n", functionCodeStart);
+            }
+            i++;
+        }
+    }
+    // extract the code that is within the function and put them into char functionCode[][]
+
+    // find all occurrences of 'function;'
+
+    // replace them with functionCode
+
 
     // validate the code
     {
@@ -31,7 +51,7 @@ int compile() {
                 printf("\033[31m");
 
                 // print text
-                printf("ERROR: '%s' is not defined", strtok(inputData[i], "\n;"));
+                printf("ERROR: '%s' is not defined\n", strtok(inputData[i], "\n;"));
 
                 // and reset the color
                 printf("\033[0m");

@@ -59,14 +59,14 @@ void updateTurtleLocation(turtle *inputTurtle) {
         printf("\033[31m");
 
         // print text
-            printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
+        printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
 
-            // and reset the color
-            printf("\033[0m");
+        // and reset the color
+        printf("\033[0m");
 
-            // and quit
-            exit(1);
-        }
+        // and quit
+        exit(1);
+    }
 
         // but if it is a puddle, we can go through it
     here:
