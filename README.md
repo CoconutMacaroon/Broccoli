@@ -1,25 +1,36 @@
-# Broccoli Documentation
+# Broccoli Documentation  
+  
+## Intro  
+  
+This is the Broccoli programming language. The commands are based on the game Robot Turtles (Kickstarter edition).
+  
+## Syntax  
+  
+### Commands  
+  
+Commands follow the following syntax: `<command name>;`. You may have one command per line. To fire the turtle's laser, for example the command would be `laser;`.  Valid commands are: 
+	- `laser;`
+	- `function;`*
+	- `forward;`
+	- `left;`
+	- `right;`
 
-## Intro
+  *See also _Functions_
+### Functions  
+  
+Functions are defined as follows:
+`function<optional whitespace>{<newline><one or more valid commands, seperated by newlines><newline>}`. Each code file must have zero or one functions. Having multiple results in undefined behavior. Here is an example function, that fires the laser, and then moves forward.
+```
+function {
+    laser;
+    forward;
+}
+```
+## Code files
 
-This is the Broccoli programming language. The commands are based on the game Robot Turtles (Kickstarter edition). It is currently interpreted, but it wouldn't be hard to make it compiled.
+Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code. The file should NOT end with a blank line, but the final line of code.
 
-## Codes
-
-
-| # | Direction  |
-|---|-------|
-| 1 | Up |
-| 2 | Right |
-| 3 | Down  |
-| 4 | Left  |
-
-| Letter | Command     |
-|--------|-------------|
-| f      | Up          |
-| l      | Right       |
-| r      | Down        |
-| L      | Left        |
-| 0      | do nothing* |
-
-*The `0` is used by the compiler to initialize the array to zeros. The runtime should ignore this character.
+## To-do
+- [ ] Add file IO
+- [ ] Add ability to fire lasers in all directions
+- [ ] Add sound effects
