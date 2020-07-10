@@ -7,11 +7,10 @@ int compile() {
     strcpy(inputData[0], "function {\n");
     strcpy(inputData[1], "laser;\n");
     strcpy(inputData[2], "}\n");
-    strcpy(inputData[3], "laser;\n");
+    strcpy(inputData[3], "function;\n");
     strcpy(inputData[4], "forward;\n");
     strcpy(inputData[5], "right;\n");
-    strcpy(inputData[6], "function;\n");
-    strcpy(inputData[7], "\0");
+    strcpy(inputData[6], "\0");
 
     // find the function definition
     int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
@@ -38,7 +37,6 @@ int compile() {
     {
         int i = functionCodeStart;
         while (!match(inputData[i], "\\s*}\\s*")) {
-            printf("%s", inputData[i]);
             strcpy(functionCode[i], inputData[i]);
             strcpy(inputData[i], "---;");
             ++i;
@@ -104,8 +102,7 @@ int compile() {
         } else if (strcmp(inputData[i], "---;\n") == 0) {
             outputData[i] = '0';
         } else if (strcmp(inputData[i], "function;\n") == 0) {
-            fprintf(stderr, "Calling functions not implemented yet\n");
-            // TODO: Insert contents of functionCode into outputData[]
+            outputData[i] = 'F';
         }
 
     }
@@ -122,7 +119,7 @@ int compile() {
         myTurtle.x = turtleStartX;
         myTurtle.y = turtleStartY;
         myTurtle.direction = 1;
-        runtime(&myTurtle, &outputData[0]);
+        runtime(&myTurtle, &outputData[0], &functionCode[0]);
     }
     return 0;
 }

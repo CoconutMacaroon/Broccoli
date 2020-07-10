@@ -24,7 +24,7 @@ void printBoard();
 
 void initBoard();
 
-void runtime(turtle *inputTurtle, char *instructions);
+void runtime(turtle *inputTurtle, char *instructions, char *function);
 
 void updateTurtleLocation(turtle *inputTurtle);
 
