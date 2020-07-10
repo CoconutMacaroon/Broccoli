@@ -14,25 +14,39 @@ int compile() {
     strcpy(inputData[6], "\0");
 
     // find the function definition
-    int functionCodeStart = NULL;  // this will store the first line that has the code that is in the function
+    int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
+    char functionCode[maxLineCount][maxLineLength];
     {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
             // if we've found a function definition
             if (match(inputData[i], "(function)\\s*\\{\\s*") == 1) {
-                functionCodeStart = i;
-                printf("We found a function at line %i.\n", functionCodeStart);
+                functionCodeStart = i + 1;
+                printf("We found a function at line %i.\n", functionCodeStart - 1);
             }
             i++;
         }
     }
-    // extract the code that is within the function and put them into char functionCode[][]
 
+    // if there isn't a function in the code
+    if (functionCodeStart == -1) {
+        // skip and bypass the code to verify/add function code, as there isn't a function
+        goto here;
+    }
+    // extract the code that is within the function and put them into char functionCode[][]
+    {
+        int i = functionCodeStart;
+        while (!match(inputData[i], "\\s*}\\s*")) {
+            printf("%s", inputData[i]);
+            strcpy(functionCode[i], inputData[i]);
+            ++i;
+        }
+    }
     // find all occurrences of 'function;'
 
     // replace them with functionCode
 
-
+    here:
     // validate the code
     {
         int i = 0;
@@ -45,7 +59,11 @@ int compile() {
             if (!(match(inputData[i], "(forward)\\s*;\\s*") ||
                   match(inputData[i], "(left)\\s*;\\s*") ||
                   match(inputData[i], "(right)\\s*;\\s*") ||
-                  match(inputData[i], "(laser)\\s*;\\s*"))) {
+                  match(inputData[i], "(laser)\\s*;\\s*") ||
+
+                  // these two detect the parts of a function
+                  match(inputData[i], "(function)\\s*\\{\\s*") ||
+                  match(inputData[i], "\\s*}\\s*"))) {
 
                 // set color to red
                 printf("\033[31m");
