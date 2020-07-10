@@ -55,12 +55,10 @@ void turnRight(turtle *inputTurtle) {
 }
 
 void fireLaser(turtle *inputTurtle) {
-    // TODO: The melted ice gets cleared after one frame
-    printf("Attempting to file laser\n");
+    printf("Attempting to fire laser\n");
     switch (inputTurtle->direction) {
         case 1:
             if (board[inputTurtle->x - 1][inputTurtle->y - 2] == 'I') {
-                printf("we are here\n");
                 board[inputTurtle->x - 1][inputTurtle->y - 2] = 'o';
             }
             clearBoard(false);
@@ -68,14 +66,7 @@ void fireLaser(turtle *inputTurtle) {
             printBoard();
             break;
         default:
-            // set color to red
-            printf("\033[31m");
-
-            // print text
-            printf("ERROR: There is no solid ice in front of you\n");
-
-            // and reset the color
-            printf("\033[0m");
+            fprintf(stderr, "ERROR: There is no solid ice in front of you\n");
 
             // and quit
             exit(1);

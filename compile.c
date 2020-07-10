@@ -3,15 +3,15 @@
 int compile() {
     char inputData[maxLineCount][maxLineLength];
 
-    // initialize sample input code
     // TODO: Read input code from file
     strcpy(inputData[0], "function {\n");
     strcpy(inputData[1], "laser;\n");
     strcpy(inputData[2], "}\n");
     strcpy(inputData[3], "laser;\n");
-    strcpy(inputData[4], "right;\n");
-    strcpy(inputData[5], "laser;\n");
-    strcpy(inputData[6], "\0");
+    strcpy(inputData[4], "forward;\n");
+    strcpy(inputData[5], "right;\n");
+    strcpy(inputData[6], "function;\n");
+    strcpy(inputData[7], "\0");
 
     // find the function definition
     int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
@@ -33,18 +33,18 @@ int compile() {
         // skip and bypass the code to verify/add function code, as there isn't a function
         goto here;
     }
+
     // extract the code that is within the function and put them into char functionCode[][]
     {
         int i = functionCodeStart;
         while (!match(inputData[i], "\\s*}\\s*")) {
             printf("%s", inputData[i]);
             strcpy(functionCode[i], inputData[i]);
+            strcpy(inputData[i], "---;");
             ++i;
         }
     }
-    // find all occurrences of 'function;'
 
-    // replace them with functionCode
 
     here:
     // validate the code
@@ -60,7 +60,8 @@ int compile() {
                   match(inputData[i], "(left)\\s*;\\s*") ||
                   match(inputData[i], "(right)\\s*;\\s*") ||
                   match(inputData[i], "(laser)\\s*;\\s*") ||
-
+                  match(inputData[i], "(function)\\s*;\\s*") ||
+                  match(inputData[i], "---;") || // means do nothing
                   // these two detect the parts of a function
                   match(inputData[i], "(function)\\s*\\{\\s*") ||
                   match(inputData[i], "\\s*}\\s*"))) {
@@ -93,7 +94,6 @@ int compile() {
     }
 
     for (int i = 0; i < maxLineCount; i++) {
-
         if (strcmp(inputData[i], "forward;\n") == 0) {
             outputData[i] = 'f';
         } else if (strcmp(inputData[i], "left;\n") == 0) {
@@ -102,6 +102,11 @@ int compile() {
             outputData[i] = 'r';
         } else if (strcmp(inputData[i], "laser;\n") == 0) {
             outputData[i] = 'L';
+        } else if (strcmp(inputData[i], "---;\n") == 0) {
+            outputData[i] = '0';
+        } else if (strcmp(inputData[i], "function;\n") == 0) {
+            fprintf(stderr, "Calling functions not implemented yet\n");
+            // TODO: Insert contents of functionCode into outputData[]
         }
 
     }

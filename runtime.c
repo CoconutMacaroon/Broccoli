@@ -1,7 +1,7 @@
 #include "main.h"
 
 void runtime(turtle *inputTurtle, char *instructions) {
-    // TODO: read compiled code from file
+    // TODO: Read compiled code from file
     // initialize the array to blanks
     clearBoard(false);
 
@@ -50,14 +50,8 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 break;
 
             default:
-                // set color to red
-                printf("\033[31m");
-
-                // print text
-                printf("ERROR: '%c' is not a valid instruction\n", *instructions);
-
-                // and reset the color
-                printf("\033[0m");
+                // complain about invalid instruction
+                fprintf(stderr, "ERROR: '%c' is not a valid instruction\n", *instructions);
 
                 // and quit
                 exit(1);
