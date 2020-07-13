@@ -2,7 +2,7 @@
 
 void moveForward(turtle *inputTurtle) {
 
-    printf("You try to move forward\n");
+    printf("You try to move forward:\n");
 
     switch (inputTurtle->direction) {
         case 1:
@@ -30,7 +30,7 @@ void moveForward(turtle *inputTurtle) {
 }
 
 void turnLeft(turtle *inputTurtle) {
-    printf("You try to turn left\n");
+    printf("You try to turn left:\n");
     (inputTurtle->direction)--;
     if (inputTurtle->direction == 0) {
         inputTurtle->direction = 4;
@@ -42,7 +42,7 @@ void turnLeft(turtle *inputTurtle) {
 }
 
 void turnRight(turtle *inputTurtle) {
-    printf("You try to turn right\n");
+    printf("You try to turn right:\n");
     (inputTurtle->direction)++;
     if (inputTurtle->direction == 5) {
         inputTurtle->direction = 1;
@@ -54,7 +54,7 @@ void turnRight(turtle *inputTurtle) {
 }
 
 void fireLaser(turtle *inputTurtle) {
-    printf("Attempting to fire laser\n");
+    printf("Attempting to fire laser:\n");
     switch (inputTurtle->direction) {
         // TODO: add ability to fire lasers in directions other than up
         case 1:

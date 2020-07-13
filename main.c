@@ -1,7 +1,6 @@
 #include "main.h"
 
 int main() {
-
     char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH];
 
     // TODO: Read input code from file
@@ -17,7 +16,6 @@ int main() {
     myTurtle.x = TURTLE_START_X;
     myTurtle.y = TURTLE_START_Y;
     myTurtle.direction = 1;
-    char *compiledCode = compile(inputData);
 
-    runtime(&myTurtle, compiledCode);
+    return runtime(&myTurtle, compile(inputData));
 }

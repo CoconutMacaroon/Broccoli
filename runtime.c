@@ -1,17 +1,11 @@
 #include "main.h"
 
-void runtime(turtle *inputTurtle, char *instructions) {
+int runtime(turtle *inputTurtle, char *instructions) {
     // TODO: Read compiled code from file
-    // initialize the array to blanks
     clearBoard(false);
-
-    // and add the turtle to the board
     updateTurtleLocation(inputTurtle);
-
-    // and add the walls, ice, etc.
     initBoard();
-
-    // and display the starting board
+    printf("Starting board:\n");
     printBoard();
 
     // until we are done
@@ -49,9 +43,8 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 ;
                 break;
             case '\0':
-                // '\0' is the end of the program/instructions. It is the final character. It should end the code
-                printf("The program is over");
-                return;
+                // '\0' is the end of the program/instructions. It signifies the end of the instructions
+                return 0;
             default:
                 // complain about invalid instruction
                 // for some reason, it is a null char
@@ -64,4 +57,5 @@ void runtime(turtle *inputTurtle, char *instructions) {
         // this increments the pointer, moving it to the next char/instruction
         instructions++;
     }
+    return 1;
 }

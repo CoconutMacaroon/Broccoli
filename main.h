@@ -30,7 +30,7 @@ void printBoard();
 
 void initBoard();
 
-void runtime(turtle *inputTurtle, char *instructions);
+int runtime(turtle *inputTurtle, char *instructions);
 
 void updateTurtleLocation(turtle *inputTurtle);
 

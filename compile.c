@@ -11,7 +11,6 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
             // if we've found a function definition
             if (match(inputData[i], "(function)\\s*\\{\\s*") == 1) {
                 functionCodeStart = i + 1;
-                printf("We found a function at line %i.\n", functionCodeStart - 1);
             }
             i++;
         }
@@ -53,16 +52,8 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                   match(inputData[i], "(function)\\s*\\{\\s*") ||
                   match(inputData[i], "\\s*}\\s*"))) {
 
-                // set color to red
-                printf("\033[31m");
+                fprintf(stderr, "ERROR: '%s' is not defined\n", strtok(inputData[i], "\n;"));
 
-                // print text
-                printf("ERROR: '%s' is not defined\n", strtok(inputData[i], "\n;"));
-
-                // and reset the color
-                printf("\033[0m");
-
-                // and quit
                 exit(1);
             }
             ++i;
@@ -116,15 +107,6 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
             }
         }
     }
-    // write the compiled code to the screen
 
-    // TODO: Write compiled instructions to file, rather than console
-    printf("Instructions: %s\n", outputData);
-
-    // run the code
-
-
-    {
-        return outputData;
-    }
+    return outputData;
 }

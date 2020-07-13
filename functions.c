@@ -99,6 +99,7 @@ void printBoard() {
         }
         printf("\n-----------------\n");
     }
+    printf("\n");
 }
 
 int match(const char *string, char *pattern) {
