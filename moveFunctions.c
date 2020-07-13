@@ -31,15 +31,14 @@ void moveForward(turtle *inputTurtle) {
 
 void turnLeft(turtle *inputTurtle) {
     printf("You try to turn left\n");
-
     (inputTurtle->direction)--;
     if (inputTurtle->direction == 0) {
         inputTurtle->direction = 4;
     }
-
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
+    // TODO: play wiggle sound
 }
 
 void turnRight(turtle *inputTurtle) {
@@ -48,15 +47,16 @@ void turnRight(turtle *inputTurtle) {
     if (inputTurtle->direction == 5) {
         inputTurtle->direction = 1;
     }
-
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
+    // TODO: play wiggle sound
 }
 
 void fireLaser(turtle *inputTurtle) {
     printf("Attempting to fire laser\n");
     switch (inputTurtle->direction) {
+        // TODO: add ability to fire lasers in directions other than up
         case 1:
             if (board[inputTurtle->x - 1][inputTurtle->y - 2] == 'I') {
                 board[inputTurtle->x - 1][inputTurtle->y - 2] = 'o';
@@ -65,9 +65,9 @@ void fireLaser(turtle *inputTurtle) {
             updateTurtleLocation(inputTurtle);
             printBoard();
             break;
+            // TODO: play laser sound
         default:
             fprintf(stderr, "ERROR: There is no solid ice in front of you\n");
-
             // and quit
             exit(1);
     }
