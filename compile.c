@@ -1,16 +1,6 @@
 #include "main.h"
 
-int compile() {
-    char inputData[maxLineCount][maxLineLength];
-
-    // TODO: Read input code from file
-    strcpy(inputData[0], "function {\n");
-    strcpy(inputData[1], "laser;\n");
-    strcpy(inputData[2], "}\n");
-    strcpy(inputData[3], "function;\n");
-    strcpy(inputData[4], "forward;\n");
-    strcpy(inputData[5], "right;\n");
-    strcpy(inputData[6], "\0");
+char *compile(char inputData[maxLineCount][maxLineLength]) {
 
     // find the function definition
     int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
@@ -30,20 +20,20 @@ int compile() {
     // if there isn't a function in the code
     if (functionCodeStart == -1) {
         // skip and bypass the code to verify/add function code, as there isn't a function
-        goto here;
+        goto skipFunctionParse;
     }
 
     // extract the code that is within the function and put them into char functionCode[][]
     {
         int i = functionCodeStart;
         while (!match(inputData[i], "\\s*}\\s*")) {
-            strcpy(functionCode[i], inputData[i]);
+            strcpy(functionCode[i - functionCodeStart], inputData[i]);
             strcpy(inputData[i], "---;");
             ++i;
         }
     }
 
-    here:
+    skipFunctionParse:
     // validate the code
     {
         int i = 0;
@@ -89,7 +79,6 @@ int compile() {
     for (int i = 0; i < maxLineCount; i++) {
         outputData[i] = '0';
     }
-
     for (int i = 0; i < maxLineCount; i++) {
         if (strcmp(inputData[i], "forward;\n") == 0) {
             outputData[i] = 'f';
@@ -102,9 +91,25 @@ int compile() {
         } else if (strcmp(inputData[i], "---;\n") == 0) {
             outputData[i] = '0';
         } else if (strcmp(inputData[i], "function;\n") == 0) {
-            outputData[i] = 'F';
+            for (int j = 0; j < maxLineCount; j++) {
+                if (strcmp(functionCode[j], "forward;\n") == 0) {
+                    outputData[i] = 'f';
+                    ++i;
+                } else if (strcmp(functionCode[j], "left;\n") == 0) {
+                    outputData[i] = 'l';
+                    ++i;
+                } else if (strcmp(functionCode[j], "right;\n") == 0) {
+                    outputData[i] = 'r';
+                    ++i;
+                } else if (strcmp(functionCode[j], "laser;\n") == 0) {
+                    outputData[i] = 'L';
+                    ++i;
+                } else if (strcmp(functionCode[j], "---;\n") == 0) {
+                    outputData[i] = '0';
+                    ++i;
+                }
+            }
         }
-
     }
     // write the compiled code to the screen
 
@@ -115,11 +120,6 @@ int compile() {
 
 
     {
-        turtle myTurtle;
-        myTurtle.x = turtleStartX;
-        myTurtle.y = turtleStartY;
-        myTurtle.direction = 1;
-        runtime(&myTurtle, &outputData[0], &functionCode[0]);
+        return outputData;
     }
-    return 0;
 }

@@ -13,8 +13,14 @@ typedef struct turtle {
     int direction;
 } turtle;
 
+// #DEFINEs
+#define maxLineLength 12
+#define maxLineCount 12
+#define turtleStartX 1
+#define turtleStartY 8
+
 // prototypes
-int compile();
+char *compile(char inputData[maxLineCount][maxLineLength]);
 
 int match(const char *string, char *pattern);
 
@@ -24,7 +30,7 @@ void printBoard();
 
 void initBoard();
 
-void runtime(turtle *inputTurtle, char *instructions, char *function);
+void runtime(turtle *inputTurtle, char *instructions);
 
 void updateTurtleLocation(turtle *inputTurtle);
 
@@ -35,12 +41,6 @@ void turnLeft(turtle *inputTurtle);
 void turnRight(turtle *inputTurtle);
 
 void fireLaser(turtle *inputTurtle);
-
-// #DEFINEs
-#define maxLineLength 12
-#define maxLineCount 12
-#define turtleStartX 1
-#define turtleStartY 8
 
 // globals
 char board[8][8];

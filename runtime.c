@@ -1,6 +1,6 @@
 #include "main.h"
 
-void runtime(turtle *inputTurtle, char *instructions, char *function) {
+void runtime(turtle *inputTurtle, char *instructions) {
     // TODO: Read compiled code from file
     // initialize the array to blanks
     clearBoard(false);
@@ -17,7 +17,7 @@ void runtime(turtle *inputTurtle, char *instructions, char *function) {
     // until we are done
     while (true) {
         // if we are done getting instructions
-        if (*instructions == '\0') {
+        if (instructions == NULL) {
             break;
         }
 
@@ -41,10 +41,6 @@ void runtime(turtle *inputTurtle, char *instructions, char *function) {
                 // if we are firing the turtle's laser
             case 'L':
                 fireLaser(inputTurtle);
-                break;
-            case 'F':
-                // run the code from the function
-                printf("--- %s ---\n", function);
                 break;
 
             case '0':
