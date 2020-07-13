@@ -2,7 +2,7 @@
 
 int main() {
 
-    char inputData[maxLineCount][maxLineLength];
+    char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH];
 
     // TODO: Read input code from file
     strcpy(inputData[0], "function {\n");
@@ -14,8 +14,8 @@ int main() {
     strcpy(inputData[6], "\0");
 
     turtle myTurtle;
-    myTurtle.x = turtleStartX;
-    myTurtle.y = turtleStartY;
+    myTurtle.x = TURTLE_START_X;
+    myTurtle.y = TURTLE_START_Y;
     myTurtle.direction = 1;
     char *compiledCode = compile(inputData);
 

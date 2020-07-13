@@ -8,7 +8,7 @@ This is the Broccoli programming language. The commands are based on the game Ro
   
 ### Commands  
   
-Commands follow the following syntax: `<command name>;`. You may have one command per line. To fire the turtle's laser, for example the command would be `laser;`.  Valid commands are: 
+Commands follow the following syntax: `<command name>;`. You may have one command per line. To fire the turtle's laser, for example the command would be `laser;`.  Valid commands are:
 	- `laser;`
 	- `function;`*
 	- `forward;`
@@ -31,6 +31,8 @@ function {
 Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code. The file should NOT end with a blank line, but the final line of code.
 
 ## To-do
+- [x] Add walls
+- [x] Add functions
 - [ ] Add file IO
 - [ ] Add ability to fire lasers in all directions
 - [ ] Add sound effects

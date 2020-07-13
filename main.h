@@ -14,13 +14,13 @@ typedef struct turtle {
 } turtle;
 
 // #DEFINEs
-#define maxLineLength 12
-#define maxLineCount 12
-#define turtleStartX 1
-#define turtleStartY 8
+#define MAX_LINE_LENGTH 12
+#define MAX_LINE_COUNT 12
+#define TURTLE_START_X 1
+#define TURTLE_START_Y 8
 
 // prototypes
-char *compile(char inputData[maxLineCount][maxLineLength]);
+char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]);
 
 int match(const char *string, char *pattern);
 
@@ -44,4 +44,4 @@ void fireLaser(turtle *inputTurtle);
 
 // globals
 char board[8][8];
-char outputData[maxLineLength];
+char outputData[MAX_LINE_LENGTH];

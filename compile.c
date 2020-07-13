@@ -1,10 +1,10 @@
 #include "main.h"
 
-char *compile(char inputData[maxLineCount][maxLineLength]) {
+char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
 
     // find the function definition
     int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
-    char functionCode[maxLineCount][maxLineLength];
+    char functionCode[MAX_LINE_COUNT][MAX_LINE_LENGTH];
     {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
@@ -75,11 +75,11 @@ char *compile(char inputData[maxLineCount][maxLineLength]) {
 
     // create a variable to store the compiled code
 
-    for (int i = 0; i < maxLineCount; i++) {
+    for (int i = 0; i < MAX_LINE_COUNT; i++) {
         outputData[i] = '0';
     }
     int outputDataIndex = 0;
-    for (int i = 0; i < maxLineCount; i++) {
+    for (int i = 0; i < MAX_LINE_COUNT; i++) {
         if (strcmp(inputData[i], "forward;\n") == 0) {
             outputData[outputDataIndex] = 'f';
             ++outputDataIndex;
@@ -96,7 +96,7 @@ char *compile(char inputData[maxLineCount][maxLineLength]) {
             outputData[outputDataIndex] = '0';
             ++outputDataIndex;
         } else if (strcmp(inputData[i], "function;\n") == 0) {
-            for (int j = 0; j < maxLineCount; j++) {
+            for (int j = 0; j < MAX_LINE_COUNT; j++) {
                 if (strcmp(functionCode[j], "forward;\n") == 0) {
                     outputData[outputDataIndex] = 'f';
                     ++outputDataIndex;

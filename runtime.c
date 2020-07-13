@@ -48,10 +48,14 @@ void runtime(turtle *inputTurtle, char *instructions) {
                 // but it has to have a `case`, as it is a valid instruction
                 ;
                 break;
-
+            case '\0':
+                // '\0' is the end of the program/instructions. It is the final character. It should end the code
+                printf("The program is over");
+                return;
             default:
                 // complain about invalid instruction
-                fprintf(stderr, "ERROR: '%c' is not a valid instruction\n", *instructions);
+                // for some reason, it is a null char
+                fprintf(stderr, "ERROR: '%i' is not a valid instruction\n", *instructions);
 
                 // and quit
                 exit(1);
