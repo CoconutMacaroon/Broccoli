@@ -19,7 +19,7 @@ Commands follow the following syntax: `<command name>;`. You may have one comman
 ### Functions  
   
 Functions are defined as follows:
-`function<optional whitespace>{<newline><one or more valid commands, seperated by newlines><newline>}`. Each code file must have zero or one functions. Having multiple results in undefined behavior. Here is an example function, that fires the laser, and then moves forward.
+`function<optional whitespace>{<newline><one or more valid commands, seperated by newlines><newline>}`. Each code file must have zero or one functions. Having multiple results in undefined behavior. Here is an example function, that fires the laser, and then moves forward. A function should be defined prior to its use. Not doing so results in undefined results.
 ```
 function {
     laser;

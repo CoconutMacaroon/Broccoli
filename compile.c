@@ -79,34 +79,40 @@ char *compile(char inputData[maxLineCount][maxLineLength]) {
     for (int i = 0; i < maxLineCount; i++) {
         outputData[i] = '0';
     }
+    int outputDataIndex = 0;
     for (int i = 0; i < maxLineCount; i++) {
         if (strcmp(inputData[i], "forward;\n") == 0) {
-            outputData[i] = 'f';
+            outputData[outputDataIndex] = 'f';
+            ++outputDataIndex;
         } else if (strcmp(inputData[i], "left;\n") == 0) {
-            outputData[i] = 'l';
+            outputData[outputDataIndex] = 'l';
+            ++outputDataIndex;
         } else if (strcmp(inputData[i], "right;\n") == 0) {
-            outputData[i] = 'r';
+            outputData[outputDataIndex] = 'r';
+            ++outputDataIndex;
         } else if (strcmp(inputData[i], "laser;\n") == 0) {
-            outputData[i] = 'L';
+            outputData[outputDataIndex] = 'L';
+            ++outputDataIndex;
         } else if (strcmp(inputData[i], "---;\n") == 0) {
-            outputData[i] = '0';
+            outputData[outputDataIndex] = '0';
+            ++outputDataIndex;
         } else if (strcmp(inputData[i], "function;\n") == 0) {
             for (int j = 0; j < maxLineCount; j++) {
                 if (strcmp(functionCode[j], "forward;\n") == 0) {
-                    outputData[i] = 'f';
-                    ++i;
+                    outputData[outputDataIndex] = 'f';
+                    ++outputDataIndex;
                 } else if (strcmp(functionCode[j], "left;\n") == 0) {
-                    outputData[i] = 'l';
-                    ++i;
+                    outputData[outputDataIndex] = 'l';
+                    ++outputDataIndex;
                 } else if (strcmp(functionCode[j], "right;\n") == 0) {
-                    outputData[i] = 'r';
-                    ++i;
+                    outputData[outputDataIndex] = 'r';
+                    ++outputDataIndex;
                 } else if (strcmp(functionCode[j], "laser;\n") == 0) {
-                    outputData[i] = 'L';
-                    ++i;
+                    outputData[outputDataIndex] = 'L';
+                    ++outputDataIndex;
                 } else if (strcmp(functionCode[j], "---;\n") == 0) {
-                    outputData[i] = '0';
-                    ++i;
+                    outputData[outputDataIndex] = '0';
+                    ++outputDataIndex;
                 }
             }
         }
@@ -120,6 +126,7 @@ char *compile(char inputData[maxLineCount][maxLineLength]) {
 
 
     {
+        // TODO: Somehow, I need to tell C to not destroy outputData once the function is done
         return outputData;
     }
 }
