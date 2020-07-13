@@ -19,6 +19,5 @@ int main() {
     myTurtle.direction = 1;
     char *compiledCode = compile(inputData);
 
-    // here it is NULL
     runtime(&myTurtle, compiledCode);
 }

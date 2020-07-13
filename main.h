@@ -44,3 +44,4 @@ void fireLaser(turtle *inputTurtle);
 
 // globals
 char board[8][8];
+char outputData[maxLineLength];

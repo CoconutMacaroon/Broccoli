@@ -74,7 +74,6 @@ char *compile(char inputData[maxLineCount][maxLineLength]) {
     //
 
     // create a variable to store the compiled code
-    char outputData[maxLineLength];
 
     for (int i = 0; i < maxLineCount; i++) {
         outputData[i] = '0';
@@ -126,7 +125,6 @@ char *compile(char inputData[maxLineCount][maxLineLength]) {
 
 
     {
-        // TODO: Somehow, I need to tell C to not destroy outputData once the function is done
         return outputData;
     }
 }
