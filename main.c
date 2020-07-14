@@ -9,7 +9,7 @@ int main() {
     strcpy(inputData[1], "laaaaaaaser;\n");
     strcpy(inputData[2], "}\n");
     strcpy(inputData[3], "function;\n");
-    strcpy(inputData[4], "forrrrrrward;\n");
+    strcpy(inputData[4], "forward;\n");
     strcpy(inputData[5], "right;\n");
     strcpy(inputData[6], "\0");
 

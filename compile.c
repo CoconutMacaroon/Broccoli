@@ -73,12 +73,6 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
         }
     }
 
-    //
-    //  compile the code
-    //
-
-    // create a variable to store the compiled code
-
     for (int i = 0; i < MAX_LINE_COUNT; i++) {
         outputData[i] = '0';
     }
@@ -118,7 +112,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                     outputData[outputDataIndex] = '0';
                     ++outputDataIndex;
                 } else {
-                    fprintf(stderr, "Unknown command '%s'.\n", strtok(functionCode[j], "\n"));
+                    fprintf(stderr, "Unknown command '%s'\n", strtok(functionCode[j], "\n"));
                     exit(1);
                 }
             }

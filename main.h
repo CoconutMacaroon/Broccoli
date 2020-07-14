@@ -14,8 +14,8 @@ typedef struct turtle {
 } turtle;
 
 // #DEFINEs
-#define MAX_LINE_LENGTH 12
-#define MAX_LINE_COUNT 12
+#define MAX_LINE_LENGTH 15
+#define MAX_LINE_COUNT 15
 #define TURTLE_START_X 1
 #define TURTLE_START_Y 8
 
