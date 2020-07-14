@@ -33,6 +33,8 @@ Code files contain: one or more commands, and zero or one function. Do NOT put b
 ## To-do
 - [x] Add walls
 - [x] Add functions
+- [ ] Validate code inside functions
 - [ ] Add file IO
 - [ ] Add ability to fire lasers in all directions
 - [ ] Add sound effects
+- [ ] Add win condition
