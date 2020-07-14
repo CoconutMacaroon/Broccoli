@@ -21,10 +21,6 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
             // if we've found a function definition
-            /*if (match(inputData[i], "(function)\\s*\\{\\s*") == 1) {
-                functionCodeStart = i + 1;
-            }*/
-            // using the oddball operator saves 13 characters
             functionCodeStart = (match(inputData[i], "(function)\\s*\\{\\s*") == 1) ? i + 1 : functionCodeStart;
             i++;
         }
