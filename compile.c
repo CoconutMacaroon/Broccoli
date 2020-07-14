@@ -5,6 +5,19 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
     // find the function definition
     int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
     char functionCode[MAX_LINE_COUNT][MAX_LINE_LENGTH];
+
+    // initialize the array
+    {
+        for (int i = 0; i < MAX_LINE_COUNT; i++) {
+            for (int j = 0; j < MAX_LINE_LENGTH; j++) {
+                functionCode[i][j] = '0';
+            }
+        }
+        for (int i = 0; i < MAX_LINE_COUNT; i++) {
+            strcpy(functionCode[i], "---;\n");
+        }
+    }
+
     {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
@@ -71,6 +84,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
     }
     int outputDataIndex = 0;
     for (int i = 0; i < MAX_LINE_COUNT; i++) {
+
         if (strcmp(inputData[i], "forward;\n") == 0) {
             outputData[outputDataIndex] = 'f';
             ++outputDataIndex;
@@ -103,10 +117,12 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                 } else if (strcmp(functionCode[j], "---;\n") == 0) {
                     outputData[outputDataIndex] = '0';
                     ++outputDataIndex;
+                } else {
+                    fprintf(stderr, "Unknown command '%s'.\n", strtok(functionCode[j], "\n"));
+                    exit(1);
                 }
             }
         }
     }
-
     return outputData;
 }

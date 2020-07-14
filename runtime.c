@@ -1,6 +1,10 @@
 #include "main.h"
 
 int runtime(turtle *inputTurtle, char *instructions) {
+#ifdef DEBUG
+    printf("%s\n", instructions);
+#endif
+
     // TODO: Read compiled code from file
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
