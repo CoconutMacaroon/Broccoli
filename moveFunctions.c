@@ -38,7 +38,6 @@ void turnLeft(turtle *inputTurtle) {
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
-    // TODO: play wiggle sound
 }
 
 void turnRight(turtle *inputTurtle) {
@@ -50,7 +49,6 @@ void turnRight(turtle *inputTurtle) {
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
-    // TODO: play wiggle sound
 }
 
 void fireLaser(turtle *inputTurtle) {
@@ -68,7 +66,6 @@ void fireLaser(turtle *inputTurtle) {
             // TODO: play laser sound
         default:
             fprintf(stderr, "ERROR: There is no solid ice in front of you\n");
-            // and quit
             exit(1);
     }
 }

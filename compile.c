@@ -112,7 +112,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                     outputData[outputDataIndex] = '0';
                     ++outputDataIndex;
                 } else {
-                    fprintf(stderr, "Unknown command '%s'\n", strtok(functionCode[j], "\n"));
+                    fprintf(stderr, "ERROR: Unknown command '%s'\n", strtok(functionCode[j], "\n"));
                     exit(1);
                 }
             }

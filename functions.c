@@ -68,7 +68,7 @@ void updateTurtleLocation(turtle *inputTurtle) {
         exit(1);
     }
 
-        // but if it is a puddle, we can go through it
+    // but if it is a puddle, we can go through it
     here:
     // based on the turtle's direction, place the appropriate icon on the board
     switch (inputTurtle->direction) {
@@ -80,11 +80,11 @@ void updateTurtleLocation(turtle *inputTurtle) {
             break;
         case 3:
             board[inputTurtle->x - 1][inputTurtle->y - 1] = 'v';
-                break;
-            case 4:
-                board[inputTurtle->x - 1][inputTurtle->y - 1] = '<';
-                break;
-        }
+            break;
+        case 4:
+            board[inputTurtle->x - 1][inputTurtle->y - 1] = '<';
+            break;
+    }
 
 }
 
@@ -104,6 +104,12 @@ void printBoard() {
 
 int match(const char *string, char *pattern) {
     // full credit goes to https://stackoverflow.com/a/1631458. code style slightly modified.
+    /*
+     * Match string against the extended regular expression in
+     * pattern, treating errors as no match.
+     *
+     * Return 1 for match, 0 for no match.
+     */
     int status;
     regex_t re;
 
