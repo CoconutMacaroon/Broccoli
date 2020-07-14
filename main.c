@@ -3,7 +3,7 @@
 int main() {
     char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH];
 
-    // get file
+    // get the un-compiled input code
     FILE *inputFileH = fopen("main.broc", "r");
     for (int i = 0; i < MAX_LINE_COUNT; i++) {
         if (fgets(inputData[i], MAX_LINE_LENGTH, inputFileH) == NULL) {
@@ -12,16 +12,29 @@ int main() {
     }
     fclose(inputFileH);
 
+    // compile the code
+    {
+        FILE *outputFileH = fopen("main.brocc", "w");
+        fprintf(outputFileH, "%s", compile(inputData));
+        fclose(outputFileH);
+    }
+
+    // read the compiled code into memory
+    FILE *compiledCodeH = fopen("main.brocc", "r");
+    char *compiledCode;
+    if (fgets(compiledCode, MAX_LINE_LENGTH, compiledCodeH) == NULL) {
+        fprintf(stderr, "ERROR: A problem occurred during file IO. Was the compiled code missing or deleted?");
+        exit(2);
+    }
+    fclose(compiledCodeH);
 
 
+    // create a turtle
     turtle myTurtle;
     myTurtle.x = TURTLE_START_X;
     myTurtle.y = TURTLE_START_Y;
     myTurtle.direction = 1;
-    {/*
-        FILE *outputFileH = fopen("main.brocc", "w");
-        fprintf(outputFileH, compile(inputData));
-        fclose(outputFileH);
-    }*/
-    return runtime(&myTurtle, compile(inputData));
+
+    // run the compiled code
+    return runtime(&myTurtle, compiledCode);
 }

@@ -92,8 +92,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
             outputData[outputDataIndex] = 'L';
             ++outputDataIndex;
         } else if (strcmp(inputData[i], "---;\n") == 0) {
-            outputData[outputDataIndex] = '0';
-            ++outputDataIndex;
+            ;
         } else if (strcmp(inputData[i], "function;\n") == 0) {
             for (int j = 0; j < MAX_LINE_COUNT; j++) {
                 if (strcmp(functionCode[j], "forward;\n") == 0) {
@@ -109,8 +108,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                     outputData[outputDataIndex] = 'L';
                     ++outputDataIndex;
                 } else if (strcmp(functionCode[j], "---;\n") == 0) {
-                    outputData[outputDataIndex] = '0';
-                    ++outputDataIndex;
+                    ;
                 } else {
                     fprintf(stderr, "ERROR: Unknown command '%s'\n", strtok(functionCode[j], "\n"));
                     exit(1);
