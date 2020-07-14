@@ -35,7 +35,7 @@ Code files contain: one or more commands, and zero or one function. Do NOT put b
 - [x] Add walls
 - [x] Add functions
 - [x] Validate code inside functions
-- [ ] Add file IO
+- [x] Add file IO
 - [ ] Add ability to fire lasers in all directions
 - [ ] Add sound effects
 - [ ] Add win condition

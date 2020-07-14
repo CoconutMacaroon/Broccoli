@@ -1,7 +1,6 @@
 #include "main.h"
 
 char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
-
     // find the function definition
     int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
     char functionCode[MAX_LINE_COUNT][MAX_LINE_LENGTH];
@@ -22,21 +21,17 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
             // if we've found a function definition
-            if (match(inputData[i], "(function)\\s*\\{\\s*") == 1) {
+            /*if (match(inputData[i], "(function)\\s*\\{\\s*") == 1) {
                 functionCodeStart = i + 1;
-            }
+            }*/
+            // using the oddball operator saves 13 characters
+            functionCodeStart = (match(inputData[i], "(function)\\s*\\{\\s*") == 1) ? i + 1 : functionCodeStart;
             i++;
         }
     }
 
-    // if there isn't a function in the code
-    if (functionCodeStart == -1) {
-        // skip and bypass the code to verify/add function code, as there isn't a function
-        goto skipFunctionParse;
-    }
-
-    // extract the code that is within the function and put them into char functionCode[][]
-    {
+    // if a function was detected
+    if (!(functionCodeStart == -1)) {
         int i = functionCodeStart;
         while (!match(inputData[i], "\\s*}\\s*")) {
             strcpy(functionCode[i - functionCodeStart], inputData[i]);
@@ -45,7 +40,6 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
         }
     }
 
-    skipFunctionParse:
     // validate the code
     {
         int i = 0;
@@ -64,9 +58,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                   // these two detect the parts of a function
                   match(inputData[i], "(function)\\s*\\{\\s*") ||
                   match(inputData[i], "\\s*}\\s*"))) {
-
                 fprintf(stderr, "ERROR: '%s' is not defined\n", strtok(inputData[i], "\n;"));
-
                 exit(1);
             }
             ++i;

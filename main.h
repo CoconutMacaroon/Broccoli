@@ -19,9 +19,6 @@ typedef struct turtle {
 #define TURTLE_START_X 1
 #define TURTLE_START_Y 8
 
-// this is to know if we are debugging
-#define DEBUG
-
 // prototypes
 char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]);
 

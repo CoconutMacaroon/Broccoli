@@ -1,11 +1,6 @@
 #include "main.h"
 
 int runtime(turtle *inputTurtle, char *instructions) {
-#ifdef DEBUG
-    printf("%s\n", instructions);
-#endif
-
-    // TODO: Read compiled code from file
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     initBoard();
@@ -19,24 +14,23 @@ int runtime(turtle *inputTurtle, char *instructions) {
             break;
         }
 
-        // now for actually dealing with each instruction
         switch (*instructions) {
-            // if we are moving forward
             case 'f':
+                // forward
                 moveForward(inputTurtle);
                 break;
 
-                // if we are moving left
             case 'l':
+                // left
                 turnLeft(inputTurtle);
                 break;
 
-                // if we are moving right
             case 'r':
+                // right
                 turnRight(inputTurtle);
                 break;
 
-                // if we are firing the turtle's laser
+                // laser
             case 'L':
                 fireLaser(inputTurtle);
                 break;
