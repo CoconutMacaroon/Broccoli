@@ -1,0 +1,6 @@
+function {
+laser;
+}
+function;
+forward;
+right;
