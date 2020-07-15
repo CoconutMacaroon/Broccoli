@@ -1,8 +1,7 @@
 #include "main.h"
 
 char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
-    // find the function definition
-    int functionCodeStart = -1;  // this will store the first line that has the code that is in the function
+    int startOfFunction = -1;
     char functionCode[MAX_LINE_COUNT][MAX_LINE_LENGTH];
 
     // initialize the array
@@ -21,16 +20,16 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
             // if we've found a function definition
-            functionCodeStart = (match(inputData[i], "(function)\\s*\\{\\s*") == 1) ? i + 1 : functionCodeStart;
+            startOfFunction = (match(inputData[i], "(function)\\s*\\{\\s*") == 1) ? i + 1 : startOfFunction;
             i++;
         }
     }
 
     // if a function was detected
-    if (!(functionCodeStart == -1)) {
-        int i = functionCodeStart;
+    if (!(startOfFunction == -1)) {
+        int i = startOfFunction;
         while (!match(inputData[i], "\\s*}\\s*")) {
-            strcpy(functionCode[i - functionCodeStart], inputData[i]);
+            strcpy(functionCode[i - startOfFunction], inputData[i]);
             strcpy(inputData[i], "---;");
             ++i;
         }

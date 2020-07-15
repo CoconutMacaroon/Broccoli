@@ -37,8 +37,8 @@ void turnLeft(turtle *inputTurtle) {
     }
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
-    playSound(roboMove);
     printBoard();
+    playSound(roboMove);
 }
 
 void turnRight(turtle *inputTurtle) {
@@ -49,8 +49,8 @@ void turnRight(turtle *inputTurtle) {
     }
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
-    playSound(roboMove);
     printBoard();
+    playSound(roboMove);
 }
 
 void fireLaser(turtle *inputTurtle) {

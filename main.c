@@ -21,7 +21,7 @@ int main() {
 
     // read the compiled code into memory
     FILE *compiledCodeH = fopen("main.brocc", "r");
-    char *compiledCode;
+    char *compiledCode = malloc(MAX_LINE_LENGTH * sizeof(char));
     if (fgets(compiledCode, MAX_LINE_LENGTH, compiledCodeH) == NULL) {
         fprintf(stderr, "ERROR: A problem occurred during file IO. Was the compiled code missing or deleted?");
         exit(2);

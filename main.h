@@ -27,13 +27,13 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]);
 
 int match(const char *string, char *pattern);
 
-void clearBoard(bool onlyClearTurtles);
+int runtime(turtle *inputTurtle, char *instructions);
 
-void printBoard();
+void clearBoard(bool onlyClearTurtles);
 
 void initBoard();
 
-int runtime(turtle *inputTurtle, char *instructions);
+void printBoard();
 
 void updateTurtleLocation(turtle *inputTurtle);
 
