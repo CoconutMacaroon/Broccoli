@@ -27,15 +27,22 @@ function {
     forward;
 }
 ```
+
+### Comments
+You may comment your code with the traditional syntax of `//<your comment here>` To be more specific, your comment must match this regex: `\/\/[ a-zA-Z0-9]*`. It defines that a comment starts with two slashes, then it may contain any number of spaces, letters (upper-and-lower case), and digits (`0 - 9`). It must span one and only one line.
+
 ## Code files
 
-Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code. The file should NOT end with a blank line, but the final line of code.
+Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code, although a blank line at the end IS valid.
 
 ## To-do
 - [x] Add walls
 - [x] Add functions
 - [x] Validate code inside functions
 - [x] Add file IO
+- [x] Add comments
 - [ ] Add ability to fire lasers in all directions
 - [x] Add sound effects
 - [ ] Add win condition
+
+## Attribution

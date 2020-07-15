@@ -15,7 +15,16 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
             strcpy(functionCode[i], "---;\n");
         }
     }
-
+    {
+        // remove comments from the code
+        int i = 0;
+        while(strcmp(inputData[i], "\0")) {
+            if(match(inputData[i], "\\/\\/[ a-zA-Z0-9]*")) {
+                strcpy(inputData[i], "---;\n");
+            }
+            ++i;
+        }
+    }
     {
         int i = 0;
         while (strcmp(inputData[i], "\0")) {
