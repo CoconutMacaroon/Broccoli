@@ -55,6 +55,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                   match(inputData[i], "(function)\\s*\\{\\s*") ||
                   match(inputData[i], "\\s*}\\s*"))) {
                 fprintf(stderr, "ERROR: '%s' is not defined\n", strtok(inputData[i], "\n;"));
+                playSound(error);
                 exit(1);
             }
             ++i;
@@ -99,6 +100,7 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                     ;
                 } else {
                     fprintf(stderr, "ERROR: Unknown command '%s'\n", strtok(functionCode[j], "\n"));
+                    playSound(error);
                     exit(1);
                 }
             }

@@ -19,6 +19,9 @@ typedef struct turtle {
 #define TURTLE_START_X 1
 #define TURTLE_START_Y 8
 
+// enumerations
+enum soundEffect{error, roboMove};
+
 // prototypes
 char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]);
 
@@ -42,6 +45,9 @@ void turnRight(turtle *inputTurtle);
 
 void fireLaser(turtle *inputTurtle);
 
+void playSound(enum soundEffect effect);
+
 // globals
 char board[8][8];
 char outputData[MAX_LINE_LENGTH];
+

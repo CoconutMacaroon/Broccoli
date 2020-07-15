@@ -51,24 +51,12 @@ void updateTurtleLocation(turtle *inputTurtle) {
     }
 
     // check if we can go through it
-    // and if we can't
     if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
-        // print an error message
-
-        // set color to red
-        printf("\033[31m");
-
-        // print text
-        printf("ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
-
-        // and reset the color
-        printf("\033[0m");
-
-        // and quit
+        // and if we can't
+        fprintf(stderr, "ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
+        playSound(error);
         exit(1);
     }
-
-    // but if it is a puddle, we can go through it
     here:
     // based on the turtle's direction, place the appropriate icon on the board
     switch (inputTurtle->direction) {
@@ -103,7 +91,7 @@ void printBoard() {
 }
 
 int match(const char *string, char *pattern) {
-    // full credit goes to https://stackoverflow.com/a/1631458. code style slightly modified.
+    // full credit goes to https://stackoverflow.com/a/1631458. Code style slightly modified.
     /*
      * Match string against the extended regular expression in
      * pattern, treating errors as no match.
@@ -122,4 +110,16 @@ int match(const char *string, char *pattern) {
         return (0);      /* Report error. */
     }
     return (1);
+}
+
+void playSound(enum soundEffect effect) {
+    switch (effect) {
+        case error:
+            system("mpv error.wav > /dev/null 2>&1");
+            break;
+        case roboMove:
+            system("mpv move.wav > /dev/null 2>&1");
+            break;
+
+    }
 }

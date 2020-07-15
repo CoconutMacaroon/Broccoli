@@ -44,11 +44,8 @@ int runtime(turtle *inputTurtle, char *instructions) {
                 // '\0' is the end of the program/instructions. It signifies the end of the instructions
                 return 0;
             default:
-                // complain about invalid instruction
-                // for some reason, it is a null char
                 fprintf(stderr, "ERROR: '%i' is not a valid instruction\n", *instructions);
-
-                // and quit
+                playSound(error);
                 exit(1);
         }
         // and move to the next instruction
