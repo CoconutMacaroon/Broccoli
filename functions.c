@@ -4,7 +4,9 @@ bool doesSpotHaveNoObstacle(int x, int y) {
     if (board[x][y] != 'o') {
         if (board[x][y] != 'W') {
             if (board[x][y] != 'I') {
-                return true;
+                if (board[x][y] != '@') {
+                    return true;
+                }
             }
         }
     }
@@ -38,6 +40,7 @@ void initBoard() {
     // create some obstacles
     board[4][2] = 'W';
     board[0][6] = 'I';
+    board[3][3] = '@';
 }
 
 void updateTurtleLocation(turtle *inputTurtle) {
@@ -45,6 +48,10 @@ void updateTurtleLocation(turtle *inputTurtle) {
 
     // clear all turtles from board, as we don't want multiple turtles
     clearBoard(true);
+    if(board[inputTurtle->x - 1][inputTurtle->y - 1] == '@') {
+        printf("%s", "You win!\n");
+        exit(0);
+    }
     // if it is not a puddle
     if (board[inputTurtle->x - 1][inputTurtle->y - 1] == 'o') {
         goto here;
