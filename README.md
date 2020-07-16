@@ -48,5 +48,5 @@ There are two main file types: `*.broc` and `*.brocc`. They represent code files
 - [ ] Add ability to fire lasers in all directions
 - [x] Add sound effects
 - [x] Add win condition
-- [x] Add command line agruments (6f8c48c and 809d09c)
+- [x] Add command line agruments
 ## Attribution
