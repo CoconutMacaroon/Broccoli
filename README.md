@@ -35,6 +35,10 @@ You may comment your code with the traditional syntax of `//<your comment here>`
 
 Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code; however, a blank line at the end of the code is REQUIRED.
 
+## Other Files
+
+There are two main file types: `*.broc` and `*.brocc`. They represent code files and compiled Broccoli code files respectively.
+
 ## To-do
 - [x] Add walls
 - [x] Add functions

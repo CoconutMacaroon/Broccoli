@@ -18,6 +18,7 @@ int main() {
         char compiledCode[MAX_LINE_COUNT];
         strcpy(compiledCode, compile(inputData));
         int i = 0;
+        // can the i++ go inside of the indexing of compiledCode
         while(compiledCode[i] != '0') {
             fputc(compiledCode[i], outputFileH);
             ++i;
