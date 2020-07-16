@@ -75,35 +75,26 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
     }
     int outputDataIndex = 0;
     for (int i = 0; i < MAX_LINE_COUNT; i++) {
-
         if (strcmp(inputData[i], "forward;\n") == 0) {
-            outputData[outputDataIndex] = 'f';
-            ++outputDataIndex;
+            outputData[outputDataIndex++] = 'f';
         } else if (strcmp(inputData[i], "left;\n") == 0) {
-            outputData[outputDataIndex] = 'l';
-            ++outputDataIndex;
+            outputData[outputDataIndex++] = 'l';
         } else if (strcmp(inputData[i], "right;\n") == 0) {
-            outputData[outputDataIndex] = 'r';
-            ++outputDataIndex;
+            outputData[outputDataIndex++] = 'r';
         } else if (strcmp(inputData[i], "laser;\n") == 0) {
-            outputData[outputDataIndex] = 'L';
-            ++outputDataIndex;
+            outputData[outputDataIndex++] = 'L';
         } else if (strcmp(inputData[i], "---;\n") == 0) {
             ;
         } else if (strcmp(inputData[i], "function;\n") == 0) {
             for (int j = 0; j < MAX_LINE_COUNT; j++) {
                 if (strcmp(functionCode[j], "forward;\n") == 0) {
-                    outputData[outputDataIndex] = 'f';
-                    ++outputDataIndex;
+                    outputData[outputDataIndex++] = 'f';
                 } else if (strcmp(functionCode[j], "left;\n") == 0) {
-                    outputData[outputDataIndex] = 'l';
-                    ++outputDataIndex;
+                    outputData[outputDataIndex++] = 'l';
                 } else if (strcmp(functionCode[j], "right;\n") == 0) {
-                    outputData[outputDataIndex] = 'r';
-                    ++outputDataIndex;
+                    outputData[outputDataIndex++] = 'r';
                 } else if (strcmp(functionCode[j], "laser;\n") == 0) {
-                    outputData[outputDataIndex] = 'L';
-                    ++outputDataIndex;
+                    outputData[outputDataIndex++] = 'L';
                 } else if (strcmp(functionCode[j], "---;\n") == 0) {
                     ;
                 } else {
