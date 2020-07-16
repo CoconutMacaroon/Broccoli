@@ -49,7 +49,14 @@ void updateTurtleLocation(turtle *inputTurtle) {
     // clear all turtles from board, as we don't want multiple turtles
     clearBoard(true);
     if(board[inputTurtle->x - 1][inputTurtle->y - 1] == '@') {
+        // thanks to https://ascii.co.uk/art/jewels for the win ASCII art
         printf("%s", "You win!\n");
+        printf("%s", "  _______\n"
+                     ".'_/_|_\\_'.\n"
+                     "\\`\\  |  /`/\n"
+                     " `\\\\ | //'\n"
+                     "   `\\|/`\n"
+                     "     `\n");
         exit(0);
     }
     // if it is not a puddle
