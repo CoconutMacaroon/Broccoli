@@ -5,6 +5,7 @@ int main(int argc, char *argv[]) {
     bool doCompile = false;
     bool doRun = false;
     bool doHelp = false;
+    char filename[256] = "";
     for (int i = 0; i < argc; ++i) {
         if (strcmp(argv[i], "-c") == 0) {
             doCompile = true;
@@ -15,20 +16,35 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[i], "-?") == 0) {
             doHelp = true;
         }
+        if (strcmp(argv[i], "-f") == 0) {
+            ++i;
+            if (!(i < argc)) {
+                printf("Hey! You need a filename after -f\n");
+                exit(1);
+            }
+            strcpy(filename, argv[i]);
+        }
+    }
+    if (strcmp(filename, "") == 0) {
+        printf("Hey! The -f argument is required!\n");
+        exit(1);
     }
 
     // if no arguments are passed
     if (!doCompile && !doRun && !doHelp) {
-        puts("ERROR: You forgot arguments. Run with -? for valid options.");
-        exit(1);
+        printf("WARN: You didn't instruct broc to do anything. Run it with -? for options.\n");
     }
     if (doHelp == true) {
-        puts("broc: broc [-c] [-r] [-?]\nCompile/run Broccoli code. Reads code from main.broc and reads compiled code from main.brocc.\n\nOptions:\n-c\tCompile code\n-r\tRun code\n-?\tDisplay help and exit\n");
+        puts("broc: broc [-c] [-r] [-?]\nCompile/run Broccoli code. Reads code from the paramater from the -f argument. Reads compiled code from main.brocc.\n\nOptions:\n-c\tCompile code\n-r\tRun code\n-?\tDisplay help and exit\n");
         exit(0);
     }
     if (doCompile == true) {
         // get the un-compiled input code
-        FILE *inputFileH = fopen("main.broc", "r");
+        FILE *inputFileH = fopen(filename, "r");
+        if (inputFileH == NULL) {
+            printf("ERROR: Couldn't read file '%s'.\n", filename);
+            exit(1);
+        }
         for (int i = 0; i < MAX_LINE_COUNT; i++) {
             if (fgets(inputData[i], MAX_LINE_LENGTH, inputFileH) == NULL) {
                 break;
