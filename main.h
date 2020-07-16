@@ -50,4 +50,3 @@ void playSound(enum soundEffect effect);
 // globals
 char board[8][8];
 char outputData[MAX_LINE_LENGTH];
-

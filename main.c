@@ -59,7 +59,6 @@ int main(int argc, char *argv[]) {
         }
         fclose(compiledCodeH);
 
-
         // create a turtle
         turtle myTurtle;
         myTurtle.x = TURTLE_START_X;
