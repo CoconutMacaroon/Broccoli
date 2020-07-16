@@ -1,6 +1,10 @@
 #include "main.h"
 
 int main(int argc, char *argv[]) {
+    // hide the cursor
+    printf("\e[?25l");
+
+    // if needed, this would unhide it: printf("\e[?25h");
     char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH];
     bool doCompile = false;
     bool doRun = false;
@@ -20,14 +24,14 @@ int main(int argc, char *argv[]) {
             ++i;
             if (!(i < argc)) {
                 printf("Hey! You need a filename after -f\n");
-                exit(1);
+                cleanExit(1);
             }
             strcpy(filename, argv[i]);
         }
     }
     if (strcmp(filename, "") == 0) {
         printf("Hey! The -f argument is required!\n");
-        exit(1);
+        cleanExit(1);
     }
 
     // if no arguments are passed
@@ -36,14 +40,14 @@ int main(int argc, char *argv[]) {
     }
     if (doHelp == true) {
         puts("broc: broc [-c] [-r] [-?]\nCompile/run Broccoli code. Reads code from the paramater from the -f argument. Reads compiled code from main.brocc.\n\nOptions:\n-c\tCompile code\n-r\tRun code\n-?\tDisplay help and exit\n");
-        exit(0);
+        cleanExit(0);
     }
     if (doCompile == true) {
         // get the un-compiled input code
         FILE *inputFileH = fopen(filename, "r");
         if (inputFileH == NULL) {
             printf("ERROR: Couldn't read file '%s'.\n", filename);
-            exit(1);
+            cleanExit(1);
         }
         for (int i = 0; i < MAX_LINE_COUNT; i++) {
             if (fgets(inputData[i], MAX_LINE_LENGTH, inputFileH) == NULL) {
@@ -71,7 +75,7 @@ int main(int argc, char *argv[]) {
         char *compiledCode = malloc(MAX_LINE_LENGTH * sizeof(char));
         if (fgets(compiledCode, MAX_LINE_LENGTH, compiledCodeH) == NULL) {
             fprintf(stderr, "ERROR: A problem occurred during file IO. Was the compiled code missing or deleted?");
-            exit(2);
+            cleanExit(1);
         }
         fclose(compiledCodeH);
 

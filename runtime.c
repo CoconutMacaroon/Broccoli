@@ -46,7 +46,7 @@ int runtime(turtle *inputTurtle, char *instructions) {
             default:
                 fprintf(stderr, "ERROR: '%i' is not a valid instruction\n", *instructions);
                 playSound(error);
-                exit(1);
+                cleanExit(1);
         }
         // and move to the next instruction
         // this increments the pointer, moving it to the next char/instruction

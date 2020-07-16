@@ -21,9 +21,13 @@ typedef struct turtle {
 #define TURTLE_START_Y 8
 
 // enumerations
-enum soundEffect{error, roboMove};
+enum soundEffect {
+    error, roboMove
+};
 
 // prototypes
+void cleanExit(int exitCode);
+
 void clearConsole();
 
 void winEffect();

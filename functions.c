@@ -62,7 +62,7 @@ void winEffect() {
         usleep(sleepTimeMilliseconds * 1000);
         clearConsole();
     }
-    exit(0);
+    cleanExit(0);
 }
 
 void updateTurtleLocation(turtle *inputTurtle) {
@@ -83,7 +83,7 @@ void updateTurtleLocation(turtle *inputTurtle) {
         // and if we can't
         fprintf(stderr, "ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
         playSound(error);
-        exit(1);
+        cleanExit(1);
     }
     here:
     // based on the turtle's direction, place the appropriate icon on the board
@@ -152,4 +152,10 @@ void playSound(enum soundEffect effect) {
             break;
 
     }
+}
+
+void cleanExit(int exitCode) {
+    // unhide the cursor
+    printf("\e[?25h");
+    exit(exitCode);
 }

@@ -71,6 +71,6 @@ void fireLaser(turtle *inputTurtle) {
             // TODO: play laser sound
         default:
             fprintf(stderr, "ERROR: There is no solid ice in front of you\n");
-            exit(1);
+            cleanExit(1);
     }
 }
