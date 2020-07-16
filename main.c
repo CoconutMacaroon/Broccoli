@@ -15,7 +15,13 @@ int main() {
     // compile the code
     {
         FILE *outputFileH = fopen("main.brocc", "w");
-        fprintf(outputFileH, "%s", compile(inputData));
+        char compiledCode[MAX_LINE_COUNT];
+        strcpy(compiledCode, compile(inputData));
+        int i = 0;
+        while(compiledCode[i] != '0') {
+            fputc(compiledCode[i], outputFileH);
+            ++i;
+        }
         fclose(outputFileH);
     }
 

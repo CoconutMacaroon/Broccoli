@@ -33,7 +33,7 @@ You may comment your code with the traditional syntax of `//<your comment here>`
 
 ## Code files
 
-Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code, although a blank line at the end IS valid.
+Code files contain: one or more commands, and zero or one function. Do NOT put blank lines in the code; however, a blank line at the end of the code is REQUIRED.
 
 ## To-do
 - [x] Add walls
