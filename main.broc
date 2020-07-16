@@ -1,6 +1,10 @@
-function {
 laser;
+function {
+forward;
+forward;
+forward;
 }
 function;
 forward;
 right;
+function;

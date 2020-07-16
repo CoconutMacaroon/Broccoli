@@ -42,14 +42,16 @@ void initBoard() {
     board[0][6] = 'I';
     board[3][3] = '@';
 }
+void clearConsole() {
+    system("clear");
+}
 
-void updateTurtleLocation(turtle *inputTurtle) {
-    // updates the turtle on the board
-
-    // clear all turtles from board, as we don't want multiple turtles
-    clearBoard(true);
-    if(board[inputTurtle->x - 1][inputTurtle->y - 1] == '@') {
-        // thanks to https://ascii.co.uk/art/jewels for the win ASCII art
+void winEffect() {
+    clearConsole();
+    int sleepTimeMilliseconds = 500;
+    // thanks to https://ascii.co.uk/art/jewels for the win ASCII art
+    for(int i = 0; i < 8; ++i) {
+        usleep(sleepTimeMilliseconds * 1000);
         printf("%s", "You win!\n");
         printf("%s", "  _______\n"
                      ".'_/_|_\\_'.\n"
@@ -57,7 +59,19 @@ void updateTurtleLocation(turtle *inputTurtle) {
                      " `\\\\ | //'\n"
                      "   `\\|/`\n"
                      "     `\n");
-        exit(0);
+        usleep(sleepTimeMilliseconds * 1000);
+        clearConsole();
+    }
+    exit(0);
+}
+
+void updateTurtleLocation(turtle *inputTurtle) {
+    // updates the turtle on the board
+
+    // clear all turtles from board, as we don't want multiple turtles
+    clearBoard(true);
+    if(board[inputTurtle->x - 1][inputTurtle->y - 1] == '@') {
+        winEffect();
     }
     // if it is not a puddle
     if (board[inputTurtle->x - 1][inputTurtle->y - 1] == 'o') {
@@ -91,6 +105,8 @@ void updateTurtleLocation(turtle *inputTurtle) {
 }
 
 void printBoard() {
+    // clear the screen
+    clearConsole();
     // print the board
     printf("-----------------\n");
     for (int i = 0; i < 8; i++) {

@@ -8,22 +8,26 @@ void moveForward(turtle *inputTurtle) {
             (inputTurtle->y)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            playSound(roboMove);
             break;
         case 2:
             (inputTurtle->x)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            playSound(roboMove);
             break;
         case 3:
             // down
             (inputTurtle->y)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            playSound(roboMove);
             break;
         case 4:
             (inputTurtle->x)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            playSound(roboMove);
             break;
     }
 }

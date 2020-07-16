@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 // define structs
 typedef struct turtle {
@@ -23,6 +24,10 @@ typedef struct turtle {
 enum soundEffect{error, roboMove};
 
 // prototypes
+void clearConsole();
+
+void winEffect();
+
 char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]);
 
 int match(const char *string, char *pattern);
