@@ -1,6 +1,7 @@
 #include "main.h"
 
 int runtime(turtle *inputTurtle, char *instructions) {
+    printf("\e[?25l");
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     initBoard();

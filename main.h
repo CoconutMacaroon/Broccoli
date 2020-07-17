@@ -56,6 +56,13 @@ void fireLaser(turtle *inputTurtle);
 
 void playSound(enum soundEffect effect);
 
+void init();
+
 // globals
 char board[8][8];
 char outputData[MAX_LINE_LENGTH];
+
+bool playSounds;
+bool doCompile;
+bool doRun;
+bool doHelp;

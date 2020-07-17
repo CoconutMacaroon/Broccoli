@@ -177,6 +177,33 @@ functions.c.s:
 	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/functions.c.s
 .PHONY : functions.c.s
 
+init.o: init.c.o
+
+.PHONY : init.o
+
+# target to build an object file
+init.c.o:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/init.c.o
+.PHONY : init.c.o
+
+init.i: init.c.i
+
+.PHONY : init.i
+
+# target to preprocess a source file
+init.c.i:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/init.c.i
+.PHONY : init.c.i
+
+init.s: init.c.s
+
+.PHONY : init.s
+
+# target to generate assembly for a file
+init.c.s:
+	$(MAKE) -f CMakeFiles/Broccoli.dir/build.make CMakeFiles/Broccoli.dir/init.c.s
+.PHONY : init.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -273,6 +300,9 @@ help:
 	@echo "... functions.o"
 	@echo "... functions.i"
 	@echo "... functions.s"
+	@echo "... init.o"
+	@echo "... init.i"
+	@echo "... init.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

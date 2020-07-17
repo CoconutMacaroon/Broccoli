@@ -8,12 +8,14 @@ void moveForward(turtle *inputTurtle) {
             (inputTurtle->y)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            usleep(1000 * 1000);
             playSound(roboMove);
             break;
         case 2:
             (inputTurtle->x)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            usleep(1000 * 1000);
             playSound(roboMove);
             break;
         case 3:
@@ -21,12 +23,14 @@ void moveForward(turtle *inputTurtle) {
             (inputTurtle->y)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            usleep(1000 * 1000);
             playSound(roboMove);
             break;
         case 4:
             (inputTurtle->x)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
+            usleep(1000 * 1000);
             playSound(roboMove);
             break;
     }
@@ -41,6 +45,7 @@ void turnLeft(turtle *inputTurtle) {
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
+    usleep(1000 * 1000);
     playSound(roboMove);
 }
 
@@ -53,6 +58,7 @@ void turnRight(turtle *inputTurtle) {
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
+    usleep(1000 * 1000);
     playSound(roboMove);
 }
 
@@ -67,6 +73,7 @@ void fireLaser(turtle *inputTurtle) {
             clearBoard(false);
             updateTurtleLocation(inputTurtle);
             printBoard();
+            usleep(1000 * 1000);
             break;
             // TODO: play laser sound
         default:

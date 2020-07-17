@@ -1,18 +1,17 @@
 #include "main.h"
 
 int main(int argc, char *argv[]) {
-    // hide the cursor
-    printf("\e[?25l");
-
-    // if needed, this would unhide it: printf("\e[?25h");
+    init();
+    // this command would unhide it: printf("\e[?25h");
     char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH];
-    bool doCompile = false;
-    bool doRun = false;
-    bool doHelp = false;
+
     char filename[256] = "";
     for (int i = 0; i < argc; ++i) {
         if (strcmp(argv[i], "-c") == 0) {
             doCompile = true;
+        }
+        if (strcmp(argv[i], "-s") == 0) {
+            playSounds = false;
         }
         if (strcmp(argv[i], "-r") == 0) {
             doRun = true;
@@ -20,6 +19,7 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[i], "-?") == 0) {
             doHelp = true;
         }
+
         if (strcmp(argv[i], "-f") == 0) {
             ++i;
             if (!(i < argc)) {
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
         printf("WARN: You didn't instruct broc to do anything. Run it with -? for options.\n");
     }
     if (doHelp == true) {
-        puts("broc: broc [-c] [-r] [-?]\nCompile/run Broccoli code. Reads code from the paramater from the -f argument. Reads compiled code from main.brocc.\n\nOptions:\n-c\tCompile code\n-r\tRun code\n-?\tDisplay help and exit\n");
+        puts("broc: broc [-c] [-r] [-?]\nCompile/run Broccoli code. Reads code from the parameter from the -f argument. Reads compiled code from main.brocc.\n\nOptions:\n-c\tCompile code\n-s\tDon't play sounds\n-r\tRun code\n-?\tDisplay help and exit\n");
         cleanExit(0);
     }
     if (doCompile == true) {

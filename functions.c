@@ -43,6 +43,7 @@ void initBoard() {
     board[3][3] = '@';
 }
 void clearConsole() {
+    // this clears the CONSOLE, not the board
     system("clear");
 }
 
@@ -143,14 +144,18 @@ int match(const char *string, char *pattern) {
 }
 
 void playSound(enum soundEffect effect) {
+    if (playSounds == false) {
+        printf("%s\n", "INFO: Playing sounds is disabled");
+        return;
+    }
+
     switch (effect) {
         case error:
-            system("mpv error.wav > /dev/null 2>&1");
+            system("mpv error.wav > /dev/null 2>&1 &");
             break;
         case roboMove:
-            system("mpv move.wav > /dev/null 2>&1");
+            system("mpv move.wav > /dev/null 2>&1 &");
             break;
-
     }
 }
 

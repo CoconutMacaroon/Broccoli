@@ -49,4 +49,5 @@ There are two main file types: `*.broc` and `*.brocc`. They represent code files
 - [x] Add sound effects
 - [x] Add win condition
 - [x] Add command line agruments
+- [x] Add interacitveness NOTE: This isn't _interactive_, but it is the only thing on the screen (technically the console).
 ## Attribution
