@@ -66,3 +66,4 @@ bool playSounds;
 bool doCompile;
 bool doRun;
 bool doHelp;
+bool nonInteractive;

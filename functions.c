@@ -44,6 +44,9 @@ void initBoard() {
 }
 void clearConsole() {
     // this clears the CONSOLE, not the board
+    if (nonInteractive == true) {
+        return;
+    }
     system("clear");
 }
 

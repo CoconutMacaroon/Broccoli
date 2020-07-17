@@ -6,5 +6,5 @@ void init() {
     doCompile = false;
     doRun = false;
     doHelp = false;
-
+    nonInteractive = false;
 }
