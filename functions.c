@@ -167,3 +167,12 @@ void cleanExit(int exitCode) {
     printf("\e[?25h");
     exit(exitCode);
 }
+
+void initVariables() {
+    // this sets up the variables that are declared in main.h
+    playSounds = true;
+    doCompile = false;
+    doRun = false;
+    doHelp = false;
+    nonInteractive = false;
+}

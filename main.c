@@ -1,8 +1,7 @@
 #include "main.h"
 
 int main(int argc, char *argv[]) {
-    init();
-    // this command would unhide it: printf("\e[?25h");
+    initVariables();
     char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH];
 
     // deal with command line arguments
@@ -26,7 +25,7 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[i], "-f") == 0) {
             ++i;
             if (!(i < argc)) {
-                printf("Hey! You need a filename after -f\n");
+                printf("ERROR: You need a filename after -f\n");
                 cleanExit(1);
             }
             strcpy(filename, argv[i]);

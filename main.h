@@ -56,7 +56,7 @@ void fireLaser(turtle *inputTurtle);
 
 void playSound(enum soundEffect effect);
 
-void init();
+void initVariables();
 
 // globals
 char board[8][8];
