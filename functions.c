@@ -86,7 +86,7 @@ void updateTurtleLocation(turtle *inputTurtle) {
     if (board[inputTurtle->x - 1][inputTurtle->y - 1] != ' ') {
         // and if we can't
         fprintf(stderr, "ERROR: X: %i Y: %i is already occupied\n", inputTurtle->x - 1, inputTurtle->y - 1);
-        playSound(error);
+        playSound(Error);
         cleanExit(1);
     }
     here:
@@ -136,12 +136,12 @@ int match(const char *string, char *pattern) {
     regex_t re;
 
     if (regcomp(&re, pattern, REG_EXTENDED | REG_NOSUB) != 0) {
-        return (0);      /* Report error. */
+        return (0);      /* Report Error. */
     }
     status = regexec(&re, string, (size_t) 0, NULL, 0);
     regfree(&re);
     if (status != 0) {
-        return (0);      /* Report error. */
+        return (0);      /* Report Error. */
     }
     return (1);
 }
@@ -153,10 +153,10 @@ void playSound(enum soundEffect effect) {
     }
 
     switch (effect) {
-        case error:
-            system("mpv error.wav > /dev/null 2>&1 &");
+        case Error:
+            system("mpv Error.wav > /dev/null 2>&1 &");
             break;
-        case roboMove:
+        case RobotMove:
             system("mpv move.wav > /dev/null 2>&1 &");
             break;
     }

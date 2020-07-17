@@ -62,8 +62,8 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                   // these two detect the parts of a function
                   match(inputData[i], "(function)\\s*\\{\\s*") ||
                   match(inputData[i], "\\s*}\\s*"))) {
-                fprintf(stderr, "ERROR: '%s' is not defined\n", strtok(inputData[i], "\n;"));
-                playSound(error);
+                fprintf(stderr, "ERROR: '%s' at %i is not defined\n", strtok(inputData[i], "\n;"), i);
+                playSound(Error);
                 cleanExit(1);
             }
             ++i;
@@ -98,8 +98,8 @@ char *compile(char inputData[MAX_LINE_COUNT][MAX_LINE_LENGTH]) {
                 } else if (strcmp(functionCode[j], "---;\n") == 0) {
                     ;
                 } else {
-                    fprintf(stderr, "ERROR: Unknown command '%s'\n", strtok(functionCode[j], "\n"));
-                    playSound(error);
+                    fprintf(stderr, "ERROR: Unknown command '%s' at line %i\n", strtok(functionCode[j], "\n"), i);
+                    playSound(Error);
                     cleanExit(1);
                 }
             }

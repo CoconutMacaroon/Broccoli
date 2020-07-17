@@ -22,7 +22,7 @@ typedef struct turtle {
 
 // enumerations
 enum soundEffect {
-    error, roboMove
+    Error, RobotMove
 };
 
 // prototypes

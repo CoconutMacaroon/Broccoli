@@ -9,14 +9,14 @@ void moveForward(turtle *inputTurtle) {
             updateTurtleLocation(inputTurtle);
             printBoard();
             usleep(1000 * 1000);
-            playSound(roboMove);
+            playSound(RobotMove);
             break;
         case 2:
             (inputTurtle->x)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
             usleep(1000 * 1000);
-            playSound(roboMove);
+            playSound(RobotMove);
             break;
         case 3:
             // down
@@ -24,14 +24,14 @@ void moveForward(turtle *inputTurtle) {
             updateTurtleLocation(inputTurtle);
             printBoard();
             usleep(1000 * 1000);
-            playSound(roboMove);
+            playSound(RobotMove);
             break;
         case 4:
             (inputTurtle->x)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
             usleep(1000 * 1000);
-            playSound(roboMove);
+            playSound(RobotMove);
             break;
     }
 }
@@ -46,7 +46,7 @@ void turnLeft(turtle *inputTurtle) {
     updateTurtleLocation(inputTurtle);
     printBoard();
     usleep(1000 * 1000);
-    playSound(roboMove);
+    playSound(RobotMove);
 }
 
 void turnRight(turtle *inputTurtle) {
@@ -59,7 +59,7 @@ void turnRight(turtle *inputTurtle) {
     updateTurtleLocation(inputTurtle);
     printBoard();
     usleep(1000 * 1000);
-    playSound(roboMove);
+    playSound(RobotMove);
 }
 
 void fireLaser(turtle *inputTurtle) {

@@ -46,7 +46,7 @@ int runtime(turtle *inputTurtle, char *instructions) {
                 return 0;
             default:
                 fprintf(stderr, "ERROR: '%i' is not a valid instruction\n", *instructions);
-                playSound(error);
+                playSound(Error);
                 cleanExit(1);
         }
         // and move to the next instruction
