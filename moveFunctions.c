@@ -8,14 +8,14 @@ void moveForward(turtle *inputTurtle) {
             (inputTurtle->y)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
-            usleep(1000 * 1000);
+            if (nonInteractive == true) { usleep(1000 * 1000); }
             playSound(RobotMove);
             break;
         case 2:
             (inputTurtle->x)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
-            usleep(1000 * 1000);
+            if (nonInteractive == true) { usleep(1000 * 1000); }
             playSound(RobotMove);
             break;
         case 3:
@@ -23,14 +23,14 @@ void moveForward(turtle *inputTurtle) {
             (inputTurtle->y)++;
             updateTurtleLocation(inputTurtle);
             printBoard();
-            usleep(1000 * 1000);
+            if (nonInteractive == true) { usleep(1000 * 1000); }
             playSound(RobotMove);
             break;
         case 4:
             (inputTurtle->x)--;
             updateTurtleLocation(inputTurtle);
             printBoard();
-            usleep(1000 * 1000);
+            if (nonInteractive == true) { usleep(1000 * 1000); }
             playSound(RobotMove);
             break;
     }
@@ -45,7 +45,7 @@ void turnLeft(turtle *inputTurtle) {
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
-    usleep(1000 * 1000);
+    if (nonInteractive == true) { usleep(1000 * 1000); }
     playSound(RobotMove);
 }
 
@@ -58,7 +58,8 @@ void turnRight(turtle *inputTurtle) {
     clearBoard(false);
     updateTurtleLocation(inputTurtle);
     printBoard();
-    usleep(1000 * 1000);
+    if (nonInteractive == true) { usleep(1000 * 1000); }
+
     playSound(RobotMove);
 }
 
@@ -73,7 +74,7 @@ void fireLaser(turtle *inputTurtle) {
             clearBoard(false);
             updateTurtleLocation(inputTurtle);
             printBoard();
-            usleep(1000 * 1000);
+            if (nonInteractive == true) { usleep(1000 * 1000); }
             break;
             // TODO: play laser sound
         default:

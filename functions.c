@@ -154,10 +154,18 @@ void playSound(enum soundEffect effect) {
 
     switch (effect) {
         case Error:
-            system("mpv Error.wav > /dev/null 2>&1 &");
+            if (nonInteractive == true) {
+                system("mpv Error.wav > /dev/null 2>&1 &");
+                break;
+            }
+            system("mpv Error.wav > /dev/null 2>&1");
             break;
         case RobotMove:
-            system("mpv move.wav > /dev/null 2>&1 &");
+            if (nonInteractive == true) {
+                system("mpv move.wav > /dev/null 2>&1 &");
+                break;
+            }
+            system("mpv move.wav > /dev/null 2>&1");
             break;
     }
 }
